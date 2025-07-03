@@ -12,25 +12,31 @@ const socialMediaLinks = [
 ];
 const currencies = [
   {
-    title: "Facility",
-    location: "/tour-list-6",
+    title: "Home",
+    location: "/",
   },
   {
-    title: "Events",
-    location: "/events",
-  },
-  {
-    title: "About",
+    title: "About Us",
     location: "/about",
-  },
-  {
-    title: "Club Gallary",
-    location: "/clubGallary",
   },
   {
     title: "Event Gallary",
     location: "/eventGallary",
   },
+  {
+    title: "Committee",
+    location: "/clubGallary",
+  },
+  {
+    title: "Commissionorate",
+    location: "/events",
+  },
+
+  {
+    title: "Resources",
+    location: "/tour-list-6",
+  },
+
   {
     title: "Contact Us",
     location: "/contact",
