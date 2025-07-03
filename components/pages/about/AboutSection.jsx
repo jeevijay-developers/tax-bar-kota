@@ -112,10 +112,10 @@ export default function AboutSection() {
                 </div>
 
                 <div className="d-flex flex-wrap gap-20">
-                  <button className="button -md -dark-1 bg-accent-1 text-white">
+                  <button className="button -md -dark-1 bg-accent-1 text-white me-15 m-2">
                     Join TBA Kota
                   </button>
-                  <button className="button -md -outline-accent-1 text-accent-1">
+                  <button className="button -md -outline-accent-1 text-accent-1 m-2">
                     Visit Website
                   </button>
                 </div>
@@ -129,32 +129,13 @@ export default function AboutSection() {
                     <Image
                       width={570}
                       height={600}
-                      src="/img/about/ab1.jpg"
+                      src="/img/about/ab.jpg"
                       alt="Tax Bar Association Kota"
                       className="w-1/1 h-full object-cover"
                     />
                   </div>
                   
-                  {/* Video Play Button */}
-                  <div className="absolute-center">
-                    <div
-                      onClick={() => setIsOpen(true)}
-                      className="d-flex items-center justify-center size-80 rounded-full bg-white shadow-2 cursor-pointer"
-                    >
-                      <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M8 5V19L19 12L8 5Z"
-                          fill="#EB662B"
-                        />
-                      </svg>
-                    </div>
-                  </div>
+                  
 
                   {/* Floating Card */}
                   <div className="absolute bottom-30 left-30">
@@ -208,7 +189,7 @@ export default function AboutSection() {
                   data-aos="fade-up"
                   data-aos-delay={index * 100}
                 >
-                  <div className="featureCard__icon size-60 bg-accent-1-05 rounded-16 d-flex items-center justify-center mb-20">
+                  <div className="featureCard__icon size-60 bg-accent-1-05 rounded-16 d-flex items-center justify-center mb-20 mx-auto">
                     <Image
                       width={30}
                       height={30}
@@ -290,10 +271,15 @@ export default function AboutSection() {
                   data-aos="fade-up"
                   data-aos-delay={index * 100}
                 >
-                  <div className="size-80 bg-accent-1-05 rounded-full d-flex items-center justify-center mx-auto mb-20">
-                    <span className="text-24 fw-700 text-accent-1">
-                      {member.name.split(' ')[1]?.[0] || member.name[0]}
-                    </span>
+                  <div className="bg-accent-1-05 rounded-full d-flex items-center justify-center mx-auto mb-20" style={{ width: '120px', height: '120px', flexShrink: 0 }}>
+                    <Image
+                      width={100}
+                      height={100}
+                      src={member.status === "Late Charter Member" ? `/img/team/default.jpg` : `/img/team/${index + 1}.jpg`}
+                      alt={member.name}
+                      className="rounded-full object-cover"
+                      style={{ width: '100px', height: '100px' }}
+                    />
                   </div>
                   <h4 className="text-16 fw-500 text-dark-1 mb-10">{member.name}</h4>
                   <div className="text-14 text-accent-1 mb-5">{member.role}</div>
@@ -326,7 +312,9 @@ export default function AboutSection() {
                     <div key={index} className="col-6">
                       <div className="d-flex items-center">
                         <div className="size-50 bg-accent-1-05 rounded-12 d-flex items-center justify-center mr-15">
-                          <span className="text-16 fw-700 text-accent-1">{item.count}</span>
+                          <span className={`${item.count.length > 2 ? 'text-12' : 'text-16'} fw-700 text-accent-1`} style={{ lineHeight: '1', whiteSpace: 'nowrap' }}>
+                            {item.count}
+                          </span>
                         </div>
                         <div className="text-15 text-dark-1">{item.label}</div>
                       </div>
@@ -402,10 +390,10 @@ export default function AboutSection() {
                   excellence, ethics, and education in taxation.
                 </p>
                 <div className="d-flex flex-wrap justify-center gap-20">
-                  <button className="button -md -accent-1 bg-accent-1 text-white">
+                  <button className="button -md -accent-1 bg-accent-1 text-white me-15 m-2">
                     Apply for Membership
                   </button>
-                  <button className="button -md -outline-white text-white">
+                  <button className="button -md -outline-white text-white m-2">
                     Contact TBA Kota
                   </button>
                 </div>
@@ -475,6 +463,10 @@ export default function AboutSection() {
           left: -8px;
         }
 
+        .featureCard {
+          text-align: center;
+        }
+
         .featureCard:hover,
         .memberCard:hover,
         .activitiesCard:hover {
@@ -496,6 +488,29 @@ export default function AboutSection() {
           transition: all 0.3s ease;
         }
 
+        /* Button margin for mobile */
+        @media (max-width: 576px) {
+          .d-flex.flex-wrap.gap-20 {
+            flex-direction: column;
+            align-items: center;
+          }
+          
+          .d-flex.flex-wrap.gap-20 .button {
+            margin-bottom: 15px;
+            margin-right: 0 !important;
+            width: 100%;
+            max-width: 250px;
+          }
+          
+          .featureCard {
+            margin-bottom: 30px;
+          }
+          
+          .memberCard {
+            margin-bottom: 30px;
+          }
+        }
+
         @media (max-width: 767px) {
           .timeline-container::after {
             left: 20px;
@@ -514,6 +529,24 @@ export default function AboutSection() {
           .timeline-left::after,
           .timeline-right::after {
             left: 12px;
+          }
+          
+          /* Mobile responsive for structure items */
+          .col-6 {
+            margin-bottom: 20px;
+          }
+          
+          /* Center align content on mobile */
+          .about-content {
+            text-align: center;
+          }
+          
+          .about-content .d-flex {
+            justify-content: center;
+          }
+          
+          .stats .text-center {
+            margin-bottom: 20px;
           }
         }
       `}</style>

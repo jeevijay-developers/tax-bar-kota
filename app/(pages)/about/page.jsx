@@ -26,7 +26,7 @@ export default function page() {
         {/* <Information /> */}
         <AboutSection />
         {/* <Banner /> */}
-        <FeaturesOne />
+        {/* <FeaturesOne /> */}
         {/* <div className="mt-60">
           <FeturesTwo />
         </div>

@@ -29,7 +29,7 @@ export default function FooterOne() {
                   <div className="col-auto">
                     <div className="text-20 fw-500">
                       Contact Us{" "}
-                      <span className="text-accent-1">8233861088</span>
+                      <span className="text-accent-1">9462833777</span>
                     </div>
                   </div>
                 </div>
@@ -53,18 +53,14 @@ export default function FooterOne() {
                 <h4 className="text-20 fw-500">Contact</h4>
 
                 <div className="y-gap-10 mt-20">
-                  <a className="d-block" href="#">
-                    Address: Opposite J.K. Pavallion, Near C.V. Garden,
-                    Nayapura, Kota, Rajasthan
-                  </a>
-                  <a className="d-block" href="#">
-                    <b> Contact Person 1</b> Mr. Hemraj Singh Chandrawat,
-                    Manager +91-8003352022
-                  </a>
-                  <a className="d-block" href="#">
-                    <b> Contact Person 2</b> Mr. Vijay Kumar Pandit, Accountat.
-                    +91-8233861088
-                  </a>
+                  Address: Tax Bar Association, Kota 81, New Grain Mandi, Opp. Pepsi
+                  Godown, Kota, Rajasthan - 324009
+                  <br />
+                  <b> Contact Person 1</b> CA Mittal Rishabh,President.
+                  +91-9462833777
+                  <br />
+                  <b> Contact Person 2</b> CS Gupta Akshay Vice President.
+                  +91-9660553338
                 </div>
               </div>
 
