@@ -275,7 +275,7 @@ export default function AboutSection() {
                     <Image
                       width={100}
                       height={100}
-                      src={`/img/team/${index + 1}.jpg`}
+                      src={member.status === "Late Charter Member" ? `/img/team/default.jpg` : `/img/team/${index + 1}.jpg`}
                       alt={member.name}
                       className="rounded-full object-cover"
                       style={{ width: '100px', height: '100px' }}
