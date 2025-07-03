@@ -12,7 +12,7 @@ export default function FeaturesOne() {
         <div className="row justify-content-center mb-40">
           <div className="col-auto text-center">
             <h2 data-aos="fade-up" className="text-36 fw-700 text-dark">
-              Why Choose Ummed Club Kota?
+              Why Choose Tax Bar Kota?
             </h2>
             <p className="text-16 text-gray mt-10" data-aos="fade-up" data-aos-delay="100">
               Discover our exclusive facilities and premium features

@@ -14,7 +14,7 @@ export default function DestinationsOne() {
         <div className="row y-gap-10 justify-between items-end">
           <div className="col-auto">
             <h2 data-aos="fade-up" className="text-30 md:text-24">
-              Shree Ummed Club Party Room's Facilities
+              Our Committee Members
             </h2>
           </div>
 
@@ -50,10 +50,10 @@ export default function DestinationsOne() {
                   slidesPerView: 3,
                 },
                 1024: {
-                  slidesPerView: 6,
+                  slidesPerView: 5,
                 },
                 1200: {
-                  slidesPerView: 8,
+                  slidesPerView: 5,
                 },
               }}
             >
