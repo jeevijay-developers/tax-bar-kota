@@ -1,0 +1,48 @@
+.cg-bg {
+  background-color: #c8ffff30;
+}
+.eg-bg {
+  background-color: #c8ffcf30;
+}
+.cg-bg:hover {
+  background: linear-gradient(45deg, #ffae007e, #00fff500);
+  cursor: pointer;
+}
+.eg-bg:hover {
+  background: linear-gradient(45deg, #51ff007e, #00fff500);
+  cursor: pointer;
+}
+.cg-bg:hover img {
+  transform: scale(1.2);
+  transition: transform 0.5s ease-in-out;
+}
+
+.bigImage {
+  position: absolute;
+  top: 0%;
+  /* left: 50%; */
+  /* transform: translate(-54%, -50%); */
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #b5b5b557;
+  backdrop-filter: blur(11px);
+}
+.close {
+  position: absolute;
+  color: white;
+  font-size: xx-large;
+  top: 12%;
+  right: 25px;
+  cursor: pointer;
+}
+.close-evenet {
+  position: absolute;
+  color: rgb(0, 0, 0);
+  font-size: xx-large;
+  top: 12%;
+  right: 25px;
+  cursor: pointer;
+}
