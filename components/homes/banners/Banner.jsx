@@ -12,7 +12,7 @@ export default function Banner() {
           <Image
             width={750}
             height={600}
-            src="/img/ummed club/gallary/WhatsApp Image 2025-02-26 at 6.55.08 PM.jpeg"
+            src="/logo/Jagmandir-palace-Kota.png"
             alt="image"
           />
           <Image
@@ -39,19 +39,23 @@ export default function Banner() {
                 data-aos-delay=""
                 className="text-40 md:text-30  lh-13"
               >
-                <span className="text-accent-1">About Club</span>
+                <span className="text-accent-1">About Tax Bar Kota</span>
               </h2>
 
               <p data-aos="fade-up" data-aos-delay="" className="mt-10">
-                Shree Ummed Club Kota established in year 1898 named after Sir
-                Robert Crosthwaite the last agent to the Viceroy of the
-                Rajputana. The club is among the first 18 clubs prior to
-                ninteenth century. The club is situated in the heart of Kota
-                city measuring almost 5 acres with grandeur historic building,
-                historic library having rare and historic collection of
-                seventeenth century books. It has state of art synthetic tennis
-                court. The billiard room provides unique fixed grouted legs
-                table with its heritage style woodwork.
+                At the time of Independence in 1947, Income Tax Act, 1922, was in
+                existence which was levied in Part A and Part C states. Kota was
+                then a part of Bundi State which was Part B state and Income Tax
+                was not applicable on us. In 1950, Income Tax was levied on Part
+                B States, through Part B Income Tax Concession Order. Inspired by
+                the ideology to have a common platform for all those who practise
+                in taxation laws, and to enable them to share the benefits of
+                their learning, experience and knowledge, 13 eminent professionals
+                from the fields of Taxation conceived the idea of establishing a
+                body for tax practitioners. The idea of the Tax Bar Association,
+                Kota was given life under the able Presidency of Shri M. H.
+                Ansari in the year 1952. Founder members of the Association are:
+                -
               </p>
 
               <div className="mt-30 md:mt-20">

@@ -15,15 +15,15 @@ const slides = [
     id: 1,
     imageSrc: "/img/hero/7/8.jpg",
     subtitle:
-      "Search, compare and book 15,000+ multiday tours all over the world.",
-    title: "WELCOME TO SHREE UMMED CLUB",
+      "",
+    title: "WELCOME TO TAX BAR KOTA",
   },
   {
     id: 2,
     imageSrc: "/img/hero/7/2.jpg",
     subtitle:
-      "Experience unforgettable moments at our exclusive events and celebrations. From cultural festivals to themed parties, we bring people together in joyous harmony.",
-    title: "Events & Celebrations",
+      "Empowering society with tax education, ethical standards, and a collaborative forum for professionals, taxpayers, and authorities.",
+    title: "Spreading Tax Knowledge & Professional Excellence",
   },
   {
     id: 3,
