@@ -25,16 +25,16 @@ const currencies = [
   },
   {
     title: "Committee",
-    location: "/clubGallary",
+    location: null,    //clubGallary
   },
   {
     title: "Commissionorate",
-    location: "/events",
+    location: null,              //events
   },
 
   {
     title: "Resources",
-    location: "/tour-list-6",
+    location: null,                //tour-list-6
   },
 
   {
@@ -80,9 +80,18 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
           >
             {currencies.map((elm, i) => (
               <li key={i} className="menuNav__item -has-submenu js-has-submenu">
-                <Link href={elm.location}>
-                  <span>{elm.title}</span>
-                </Link>
+                {elm.location ? (
+                  <Link href={elm.location}>
+                    <span>{elm.title}</span>
+                  </Link>
+                ) : (
+                  <a 
+                    style={{ cursor: 'default' }}
+                    onClick={(e) => e.preventDefault()}
+                  >
+                    <span>{elm.title}</span>
+                  </a>
+                )}
 
                 <ul
                   style={
