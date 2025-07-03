@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section className="pageHeader -type-1">
       <div className="pageHeader__bg">
-        <Image width={1800} height={500} src="/img/about/ab1.jpg" alt="image" />
+        <Image width={1800} height={500} src="/img/about/ab.jpg" alt="image" />
         <Image
           width="1800"
           height="40"
@@ -22,10 +22,7 @@ export default function Hero() {
               <h1 className="pageHeader__title">About Us</h1>
 
               <p className="pageHeader__text">
-                Shree Ummed Club Kota established in year 1898 named after Sir
-                Robert Crosthwaite the last agent to the Viceroy of the
-                Rajputana. The club is among the first 18 clubs prior to
-                ninteenth century.
+                Established in 1952, the Tax Bar Association, Kota (TBA) stands as a leading body of tax professionals in India, committed to promoting excellence, ethics, and education in the field of taxation
               </p>
             </div>
           </div>
