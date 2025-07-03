@@ -5,7 +5,7 @@ import BlogSingle from "@/components/blogs/BlogSingle";
 import eventDesc from "@/data/eventDesc";
 
 export const metadata = {
-  title: "Ummed Club kota",
+  title: "tax-bar-kota",
   description: "",
 };
 

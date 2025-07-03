@@ -2,26 +2,26 @@ export const features = [
   {
     id: 1,
     iconSrc: "/img/icons/1/ticket.svg",
-    title: "A Legacy Since 1898",
-    text: "Established in 1898 and named after Sir Robert Crosthwaite, Shree Ummed Club Kota is one of the first 18 clubs founded before the nineteenth century. Experience history in the heart of Kota city.",
+    title: "Dedicated to Tax Education",
+    text: "We are committed to spreading knowledge in tax laws, accountancy, and related fields for the benefit of professionals and society.",
   },
   {
     id: 2,
     iconSrc: "/img/icons/1/hot-air-balloon.svg",
-    title: "Historic Grandeur Awaits",
-    text: "Spanning nearly 5 acres, Shree Ummed Club Kota boasts a majestic historic building and a library with rare seventeenth-century books. Discover a legacy that stands the test of time.",
+    title: "Collaborative Professional Forum",
+    text: "A unique platform for discussion, learning, and cooperation among tax professionals, taxpayers, and authorities.",
   },
   {
     id: 3,
     iconSrc: "/img/icons/1/diamond.svg",
-    title: "Sports and Heritage Combined",
-    text: "Enjoy a state-of-the-art synthetic tennis court and a billiard room with a unique fixed grouted legs table, showcasing exquisite heritage-style woodwork. Experience the best of both worlds.",
+    title: "Advocacy & Public Interest",
+    text: "We represent and support members before tax authorities and courts, working for the public interest and professional integrity.",
   },
   {
     id: 4,
     iconSrc: "/img/icons/1/medal.svg",
-    title: "Dive into History and Luxury",
-    text: "Located in the heart of Kota city, Shree Ummed Club blends historical elegance with modern amenities. From a historic library to top-notch sports facilities, it’s a destination like no other.",
+    title: "Ethics & Unity",
+    text: "Promoting high ethical standards, unity, and fraternity among members to enhance the image of the profession in society.",
   },
 ];
 export const featuresFour = [

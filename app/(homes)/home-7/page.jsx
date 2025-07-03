@@ -19,6 +19,7 @@ import FooterFive from "@/components/layout/footers/FooterFive";
 import FooterOne from "@/components/layout/footers/FooterOne";
 import Header1 from "@/components/layout/header/Header1";
 import Header6 from "@/components/layout/header/Header6";
+import LetsGetStarted from "@/components/LetsGetStarted/LetsGetStarted";
 import React from "react";
 
 export const metadata = {
@@ -36,13 +37,13 @@ export default function page() {
         <DestinationsOne />
         {/* <Tour1 /> */}
         <Banner />
-        <TourTypeOne />
+        {/* <TourTypeOne /> */}
         {/* <TourSlderOne /> */}
         {/* <TestimonialOne /> */}
-        <BannerOne />
-        <Features9 />
-        <BannerFour />
-        <FeaturesThree />
+        {/* <BannerOne /> */}
+        {/* <Features9 /> */}
+        {/* <BannerFour /> */}
+        <LetsGetStarted />
 
         {/* <ArticlesThree /> */}
         <FooterOne />

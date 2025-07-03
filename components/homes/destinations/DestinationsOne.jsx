@@ -10,11 +10,11 @@ import Link from "next/link";
 export default function DestinationsOne() {
   return (
     <section className="layout-pt-xl">
-      <div className="container">
+      <div className="container pb-60 md:pb-40">
         <div className="row y-gap-10 justify-between items-end">
           <div className="col-auto">
             <h2 data-aos="fade-up" className="text-30 md:text-24">
-              Shree Ummed Club Party Room's Facilities
+              Our Committee Members
             </h2>
           </div>
 
@@ -50,10 +50,10 @@ export default function DestinationsOne() {
                   slidesPerView: 3,
                 },
                 1024: {
-                  slidesPerView: 6,
+                  slidesPerView: 5,
                 },
                 1200: {
-                  slidesPerView: 8,
+                  slidesPerView: 5,
                 },
               }}
             >
@@ -69,7 +69,7 @@ export default function DestinationsOne() {
                         height={260}
                         src={elm.imageSrc}
                         alt="image"
-                        className="size-130 object-cover rounded-full"
+                        className="size-130 object- justify-center rounded-full"
                       />
                     </div>
 

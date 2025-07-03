@@ -12,25 +12,31 @@ const socialMediaLinks = [
 ];
 const currencies = [
   {
-    title: "Facility",
-    location: "/tour-list-6",
+    title: "Home",
+    location: "/",
   },
   {
-    title: "Events",
-    location: "/events",
-  },
-  {
-    title: "About",
+    title: "About Us",
     location: "/about",
-  },
-  {
-    title: "Club Gallary",
-    location: "/clubGallary",
   },
   {
     title: "Event Gallary",
     location: "/eventGallary",
   },
+  {
+    title: "Committee",
+    location: null,    //clubGallary
+  },
+  {
+    title: "Commissionorate",
+    location: null,              //events
+  },
+
+  {
+    title: "Resources",
+    location: null,                //tour-list-6
+  },
+
   {
     title: "Contact Us",
     location: "/contact",
@@ -74,9 +80,18 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
           >
             {currencies.map((elm, i) => (
               <li key={i} className="menuNav__item -has-submenu js-has-submenu">
-                <Link href={elm.location}>
-                  <span>{elm.title}</span>
-                </Link>
+                {elm.location ? (
+                  <Link href={elm.location}>
+                    <span>{elm.title}</span>
+                  </Link>
+                ) : (
+                  <a 
+                    style={{ cursor: 'default' }}
+                    onClick={(e) => e.preventDefault()}
+                  >
+                    <span>{elm.title}</span>
+                  </a>
+                )}
 
                 <ul
                   style={

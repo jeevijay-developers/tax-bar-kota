@@ -41,7 +41,7 @@ export default function Header1() {
       <header
         className={`header -type-1 js-header ${addClass ? "-is-sticky" : ""}`}
       >
-        <div className="header__container container">
+        <div className="header__container container" style={{ height: "80px" }}>
           <div className="headerMobile__left">
             <button
               onClick={() => setMobileMenuOpen(true)}
@@ -54,9 +54,9 @@ export default function Header1() {
           <div className="header__logo">
             <Link href="/" className="header__logo">
               <Image
-                width="250"
+                width="80"
                 height="50"
-                src="/img/pageHeader/logo.png"
+                src="/logo/logo.png"
                 alt="logo icon"
                 priority
               />
