@@ -29,22 +29,22 @@ const slides = [
     id: 3,
     imageSrc: "/img/hero/7/3.jpg",
     subtitle:
-      "Stay active and energized with our state-of-the-art sports facilities. Whether you're into swimming, tennis, or indoor games, we have something for every fitness enthusiast.",
-    title: "Sports & Recreation",
+      "Enhance your tax expertise through our comprehensive educational programs, workshops, and seminars focused on the latest developments in tax laws and accounting practices.",
+    title: "Education & Professional Development",
   },
   {
     id: 4,
     imageSrc: "/img/hero/7/9.png",
     subtitle:
-      "Savor a culinary journey with our exquisite dining options. Our multi-cuisine restaurant and café offer a delightful ambiance, perfect for family gatherings and social meet-ups.",
-    title: "Dining & Hospitality",
+      "Gain access to a wealth of resources including tax publications, journals, and a supportive network of experienced professionals to help navigate complex tax challenges.",
+    title: "Resources & Community Support",
   },
   {
     id: 5,
     imageSrc: "/img/hero/7/5.jpg",
     subtitle:
-      "Become a part of the Shree Ummed Club family. Enjoy exclusive privileges, access to premium amenities, and a community that celebrates togetherness and well-being.",
-    title: "Membership & Benefits",
+      "Join our advocacy efforts to promote independence of judicial authorities and represent public interest in matters of taxation and professional standards.",
+    title: "Advocacy & Public Representation",
   },
 ];
 
