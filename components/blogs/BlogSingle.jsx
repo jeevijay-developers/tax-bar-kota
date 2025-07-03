@@ -44,33 +44,18 @@ export default function BlogSingle({ blog }) {
               </div> */}
 
               <p className="mt-20">{blog.blog.blogPara2}</p>
-
               <div className="row y-gap-30 pt-20">
-                <div className="col-md-6">
-                  <Image
-                    width={410}
-                    height={350}
-                    src={blog.blog.bImage1}
-                    alt="image"
-                    className="rounded-8"
-                  />
-                  {/* <div className="mt-10">
-                    Donec purus posuere nullam lacus aliquam.
-                  </div> */}
-                </div>
-
-                <div className="col-md-6">
-                  <Image
-                    width={410}
-                    height={350}
-                    src={blog.blog.bImage2}
-                    alt="image"
-                    className="rounded-8"
-                  />
-                  {/* <div className="mt-10">
-                    Donec purus posuere nullam lacus aliquam.
-                  </div> */}
-                </div>
+                {blog.blog.bImages?.map((image, index) => (
+                  <div className="col-md-6" key={index}>
+                    <Image
+                      width={410}
+                      height={350}
+                      src={image}
+                      alt={`image-${index}`}
+                      className="rounded-8"
+                    />
+                  </div>
+                ))}
               </div>
 
               <p className="mt-20">{blog.blog.blogPara3}</p>
