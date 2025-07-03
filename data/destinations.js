@@ -2,31 +2,31 @@ export const destinations = [
   {
     id: 1,
     name: "CA Mittal Rishabh",
-    imageSrc: "/img/ummed club/gallary/gallery-item11.jpg",
+    imageSrc: "/img/team/1/rishabh.jpg",
     tourCount: 100,
   },
   {
     id: 2,
     name: "CS Gupta Akshay",
-    imageSrc: "/img/ummed club/gallary/gallery-item4.jpg",
+    imageSrc: "/img/team/1/akshay.jpg",
     tourCount: 300,
   },
   {
     id: 3,
     name: "CA Dayani Hitesh",
-    imageSrc: "/img/ummed club/gallary/item3.jpg",
+    imageSrc: "/img/team/1/hitesh.jpg",
     tourCount: 400,
   },
   {
     id: 4,
     name: "Adv Nagar Mukul",
-    imageSrc: "/img/ummed club/gallary/gallery-item10.jpg",
+    imageSrc: "/img/team/1/mukul.jpg",
     tourCount: 100,
   },
   {
     id: 5,
     name: "CA Dudi Govind Ram",
-    imageSrc: "/img/ummed club/gallary/gallery-item3.jpg",
+    imageSrc: "/img/team/1/default.jpg",
     tourCount: 600,
   },
   // {

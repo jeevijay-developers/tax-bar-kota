@@ -18,7 +18,9 @@ if (typeof window !== "undefined") {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head></head>
+      <head>
+        <link rel="icon" href="/logo/logo.svg" />
+      </head>
       <body className={dmsans.className}>
         <Wrapper>{children}</Wrapper>
         <ScrollToTop />

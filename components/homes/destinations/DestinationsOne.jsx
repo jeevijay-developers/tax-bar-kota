@@ -69,7 +69,7 @@ export default function DestinationsOne() {
                         height={260}
                         src={elm.imageSrc}
                         alt="image"
-                        className="size-130 object-cover rounded-full"
+                        className="size-130 object- justify-center rounded-full"
                       />
                     </div>
 
