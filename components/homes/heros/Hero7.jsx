@@ -13,35 +13,35 @@ import "swiper/css/pagination";
 const slides = [
   {
     id: 1,
-    imageSrc: "/img/hero/7/8.jpg",
+    imageSrc: "/img/hero/7/3.png",
     subtitle:
       "",
     title: "WELCOME TO TAX BAR KOTA",
   },
   {
     id: 2,
-    imageSrc: "/img/hero/7/2.jpg",
+    imageSrc: "/img/hero/7/1.png",
     subtitle:
       "Empowering society with tax education, ethical standards, and a collaborative forum for professionals, taxpayers, and authorities.",
     title: "Spreading Tax Knowledge & Professional Excellence",
   },
   {
     id: 3,
-    imageSrc: "/img/hero/7/3.jpg",
+    imageSrc: "/img/hero/7/5.png",
     subtitle:
       "Enhance your tax expertise through our comprehensive educational programs, workshops, and seminars focused on the latest developments in tax laws and accounting practices.",
     title: "Education & Professional Development",
   },
   {
     id: 4,
-    imageSrc: "/img/hero/7/9.png",
+    imageSrc: "/img/hero/7/3.png",
     subtitle:
       "Gain access to a wealth of resources including tax publications, journals, and a supportive network of experienced professionals to help navigate complex tax challenges.",
     title: "Resources & Community Support",
   },
   {
     id: 5,
-    imageSrc: "/img/hero/7/5.jpg",
+    imageSrc: "/img/hero/7/4.png",
     subtitle:
       "Join our advocacy efforts to promote independence of judicial authorities and represent public interest in matters of taxation and professional standards.",
     title: "Advocacy & Public Representation",
