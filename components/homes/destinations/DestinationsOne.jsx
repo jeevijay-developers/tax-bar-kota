@@ -10,7 +10,7 @@ import Link from "next/link";
 export default function DestinationsOne() {
   return (
     <section className="layout-pt-xl">
-      <div className="container">
+      <div className="container pb-60 md:pb-40">
         <div className="row y-gap-10 justify-between items-end">
           <div className="col-auto">
             <h2 data-aos="fade-up" className="text-30 md:text-24">
