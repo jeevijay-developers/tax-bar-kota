@@ -22,7 +22,7 @@ const currencies = [
   },
   {
     title: "Event Gallary",
-    location: "/eventGallary",
+    location: "/eventGallery",
   },
   {
     title: "Contact Us",

@@ -8,7 +8,6 @@
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modern-header.scrolled {
@@ -268,35 +267,10 @@ body {
     }
 }
 
-.nav-item {
-    animation: fadeInUp 0.6s ease forwards;
-}
-
-.nav-item:nth-child(1) {
-    animation-delay: 0.1s;
-}
-
-.nav-item:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.nav-item:nth-child(3) {
-    animation-delay: 0.3s;
-}
-
-.nav-item:nth-child(4) {
-    animation-delay: 0.4s;
-}
-
-.nav-item:nth-child(5) {
-    animation-delay: 0.5s;
-}
-
 /* Focus styles for accessibility */
 .nav-link:focus,
 .profile-btn:focus,
 .mobile-menu-btn:focus {
-    outline: 2px solid #ff8547;
     outline-offset: 2px;
 }
 

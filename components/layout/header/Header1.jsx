@@ -10,8 +10,8 @@ import { useRouter } from "next/navigation";
 const MENU_ITEMS = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Events", href: "/events" },
-  { label: "Gallery", href: "/clubGallary" },
+  { label: "Events", href: "/eventGallery" },
+  { label: "Gallery", href: "/clubGallery" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -94,7 +94,7 @@ export default function Header1() {
             {/* Profile Section */}
             <div className="profile-section">
               <button
-                onClick={() => router.push("/login")}
+                onClick={() => router.push("/profile-update")}
                 className="profile-btn"
                 aria-label="Profile"
               >
