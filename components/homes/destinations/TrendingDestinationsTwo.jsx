@@ -27,14 +27,14 @@ export default function TrendingDestinationsTwo() {
   return (
     <section
       className="layout-pt-xl layout-pb-xl "
-      style={{ backgroundColor: "#454343" }}
+      style={{ backgroundColor: "rgb(209 213 219)" }}
     >
       <div className="container">
         {gallerySections.map((section, idx) => (
           <div key={idx}>
             <h2
               data-aos="fade-up"
-              className="text-30 text-center md:text-24 text-white mt-4 mb-4"
+              className="text-30 text-center md:text-24 text-black mt-4 mb-4"
             >
               {section.title}
             </h2>
