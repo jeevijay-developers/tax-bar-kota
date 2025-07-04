@@ -16,7 +16,7 @@ export default function LetsGetStarted() {
                                 Join a vibrant community of tax professionals, share knowledge, and contribute to the advancement of tax education and ethical standards.
                             </p>
                             <div className="d-flex gap-3 flex-wrap">
-                                <Link href="/jointba" legacyBehavior>
+                                <Link href="/join-tba" legacyBehavior>
                                     <a className="btn cta-primary-btn px-4 py-3 rounded-pill fw-semibold">
                                         Join Tax Bar Association
                                     </a>

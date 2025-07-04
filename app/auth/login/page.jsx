@@ -4,8 +4,8 @@ import Login from "@/components/pages/Login";
 import React from "react";
 
 export const metadata = {
-  title: "Login || ViaTour - Travel & Tour React NextJS Template",
-  description: "ViaTour - Travel & Tour React NextJS Template",
+  title: "Login | Tax Bar Kota",
+  description: "Login to Tax Bar Kota portal.",
 };
 
 export default function page() {
