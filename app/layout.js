@@ -4,6 +4,7 @@ import "../public/css/style.css";
 import { DM_Sans } from "next/font/google";
 import ScrollTopBehaviour from "@/components/common/ScrollTopBehavier";
 import Wrapper from "@/components/layout/Wrapper";
+import { ToastContainer } from "react-toastify";
 const dmsans = DM_Sans({
   weight: ["400", "500", "700"],
   style: ["normal", "italic"],
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
         <Wrapper>{children}</Wrapper>
         <ScrollToTop />
         <ScrollTopBehaviour />
+        <ToastContainer />
       </body>
     </html>
   );

@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { registerUser } from "@/server/api";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const [formData, setFormData] = React.useState({
@@ -106,10 +107,8 @@ const Register = () => {
 
   useEffect(() => {
     const timeOut = setTimeout(() => {
-      console.log(`Checking confirm password: ${conPass}`);
-
       if (conPass !== formData.password) {
-        setConfirmPasswordError("Passwords do not match");
+        toast.error("Passwords do not match");
       } else {
         setConfirmPasswordError("");
       }
@@ -124,15 +123,17 @@ const Register = () => {
     e.preventDefault();
     setApiError("");
     setApiSuccess("");
+    console.log("Form Data:", formData);    
     try {
-      const res = await registerUser(formData);
-      setApiSuccess("Registration successful! Please login.");
+      const res = await registerUser({user:formData});
+      toast.success("Registration successful! Please login.");
+      console.log("Response:", res);
     } catch (err) {
-      setApiError(err.message || "Registration failed");
+      toast.error(err.message || "Registration failed");
+      console.log("Response:", err);
     }
   };
 
-  console.log(formData);
 
   return (
     <section className="mt-header mt-10">
