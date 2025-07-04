@@ -40,7 +40,7 @@ export default function TrendingDestinationsTwo() {
             </h2>
             <div
               data-aos="fade-up"
-              className="row y-gap-30 justify-between pt-20 sm:pt-10"
+              className="row y-gap-30  pt-20 sm:pt-10"
             >
               {section.images.map((img, i) => (
                 <div
