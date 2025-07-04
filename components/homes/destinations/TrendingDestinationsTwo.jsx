@@ -3,14 +3,17 @@ import { destinationsEight } from "@/data/destinations";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import { tourDataThreeA } from "@/data/tours";
+import { gallerySections, tourDataThreeA } from "@/data/tours";
 import { IoCloseSharp } from "react-icons/io5";
 import "./style.css";
 
+
+
 export default function TrendingDestinationsTwo() {
-  const [image, setImage] = useState("/img/clubgallary/cg10.jpg");
+  const [image, setImage] = useState("");
   const [viewBig, setViewBig] = useState(false);
   const [text, setText] = useState("");
+
   const handleImageClick = (path, text) => {
     setImage(path);
     setText(text);
@@ -20,79 +23,60 @@ export default function TrendingDestinationsTwo() {
     setImage("");
     setViewBig(false);
   };
+
   return (
-    <section className="layout-pt-xl layout-pb-xl bg-black">
+    <section
+      className="layout-pt-xl layout-pb-xl "
+      style={{ backgroundColor: "#454343" }}
+    >
       <div className="container">
-        <div className="row justify-between items-end y-gap-10">
-          <div className="col-auto">
+        {gallerySections.map((section, idx) => (
+          <div key={idx}>
             <h2
               data-aos="fade-up"
-              data-aos-delay=""
-              className="text-30 md:text-24 text-white"
+              className="text-30 text-center md:text-24 text-white mt-4 mb-4"
             >
-              Club Gallary
+              {section.title}
             </h2>
-          </div>
-
-          {/* <div className="col-auto">
-            <Link
-              href={"/tour-list-1"}
-              data-aos="fade-left"
-              data-aos-delay=""
-              className="buttonArrow d-flex items-center text-white"
-            >
-              <span>See all</span>
-              <i className="icon-arrow-top-right text-16 ml-10"></i>
-            </Link>
-          </div> */}
-        </div>
-
-        <div
-          data-aos="fade-up"
-          data-aos-delay=""
-          className="row y-gap-30 justify-between pt-40 sm:pt-20"
-        >
-          {tourDataThreeA.map((elm, i) => (
             <div
-              key={i}
-              className="col-lg-3 col-md-6"
-              onClick={() => {
-                handleImageClick(elm.imageSrc, elm.title);
-              }}
+              data-aos="fade-up"
+              className="row y-gap-30 justify-between pt-20 sm:pt-10"
             >
-              <section
-                href="/tour-list-1"
-                className="featureCard -type-4 -hover-image-scale"
-              >
+              {section.images.map((img, i) => (
                 <div
-                  className="featureCard__image ratio ratio-3:4 -hover-image-scale__image rounded-12"
-                  style={{
-                    border: "2px solid white",
-                  }}
+                  key={i}
+                  className="col-lg-3 col-md-6 col-6"
+                  onClick={() => handleImageClick(img.src, img.title)}
                 >
-                  <Image
-                    width={450}
-                    height={600}
-                    src={elm.imageSrc}
-                    alt="image"
-                    className="img-ratio"
-                  />
+                  <section className="featureCard -type-4 -hover-image-scale">
+                    <div
+                      className="featureCard__image ratio ratio-3:4 -hover-image-scale__image rounded-12"
+                      style={{
+                        border: "2px solid white",
+                      }}
+                    >
+                      <Image
+                        width={450}
+                        height={600}
+                        src={img.src}
+                        alt={img.title}
+                        className="img-ratio"
+                      />
+                    </div>
+                    <div className="featureCard__content text-center">
+                      <h4 className="text-20 fw-500 text-white">{img.title}</h4>
+                    </div>
+                  </section>
                 </div>
-
-                <div className="featureCard__content text-center">
-                  <h4 className="text-20 fw-500 text-white">{elm.title}</h4>
-                  {/* <div className="text-14 lh-14 text-white">
-                    {elm.tourCount}+ Tours
-                  </div> */}
-                </div>
-              </section>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
+
       {viewBig && (
         <div className="bigImage">
-          <div className="close" onClick={() => handleCloseImageClick()}>
+          <div className="close" onClick={handleCloseImageClick}>
             <IoCloseSharp />
           </div>
           <div className="d-flex flex-column gap-4">
@@ -102,8 +86,7 @@ export default function TrendingDestinationsTwo() {
               src={image}
               alt="big-image"
               style={{ border: "2px solid white", borderRadius: "12px" }}
-            />{" "}
-            <br />
+            />
             <h4 className="text-white text-center">{text}</h4>
           </div>
         </div>

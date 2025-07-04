@@ -22,18 +22,18 @@ const eventDesc = [
       blogPara1:
         "The Diwali Meet on 23rd October 2017 was a vibrant celebration hosted by the Tax Bar Association, Kota to strengthen bonds among its members. The event featured cultural programs, music, and a festive dinner, creating an atmosphere of happiness and unity. Families joined in the celebrations, adding to the spirit of fraternity. The Diwali Meet reflected the association’s commitment to not only professional excellence but also to nurturing relationships and goodwill among its members.",
       bImage1: "/img/tax-bar-kota/event-gallery/2.jpg",
-      bImages: [
-        "/img/tax-bar-kota/event-gallery/2.jpg",
-        "/img/tax-bar-kota/event-gallery/3.jpg",
-        "/img/tax-bar-kota/event-gallery/4.jpg",
-        "/img/tax-bar-kota/event-gallery/5.jpg",
-        "/img/tax-bar-kota/event-gallery/6.jpg",
-        "/img/tax-bar-kota/event-gallery/7.jpg",
-        "/img/tax-bar-kota/event-gallery/8.jpg",
-        "/img/tax-bar-kota/event-gallery/9.jpg",
-        "/img/tax-bar-kota/event-gallery/10.jpg",
-        "/img/tax-bar-kota/event-gallery/11.jpg",
-      ],
+      // bImages: [
+      //   "/img/tax-bar-kota/event-gallery/2.jpg",
+      //   "/img/tax-bar-kota/event-gallery/3.jpg",
+      //   "/img/tax-bar-kota/event-gallery/4.jpg",
+      //   "/img/tax-bar-kota/event-gallery/5.jpg",
+      //   "/img/tax-bar-kota/event-gallery/6.jpg",
+      //   "/img/tax-bar-kota/event-gallery/7.jpg",
+      //   "/img/tax-bar-kota/event-gallery/8.jpg",
+      //   "/img/tax-bar-kota/event-gallery/9.jpg",
+      //   "/img/tax-bar-kota/event-gallery/10.jpg",
+      //   "/img/tax-bar-kota/event-gallery/11.jpg",
+      // ],
     },
   },
   {
@@ -46,14 +46,14 @@ const eventDesc = [
       blogPara1:
         "The GST Workshop organized on 12th and 13th August 2017 by the Tax Bar Association, Kota aimed to provide practical knowledge and updates about India’s landmark tax reform, the Goods and Services Tax. Eminent speakers and experts guided participants through registration, compliance, and operational challenges of GST. The workshop helped members strengthen their professional skills and stay updated with the latest legal framework, in line with the association’s mission to promote education in tax laws and accountancy.",
       bImage1: "/img/tax-bar-kota/event-gallery/12.jpg",
-      bImages: [
-        "/img/tax-bar-kota/event-gallery/12.jpg",
-        "/img/tax-bar-kota/event-gallery/13.jpg",
-        "/img/tax-bar-kota/event-gallery/14.jpg",
-        "/img/tax-bar-kota/event-gallery/15.jpg",
-        "/img/tax-bar-kota/event-gallery/16.jpg",
-        "/img/tax-bar-kota/event-gallery/17.jpg",
-      ],
+      // bImages: [
+      //   "/img/tax-bar-kota/event-gallery/12.jpg",
+      //   "/img/tax-bar-kota/event-gallery/13.jpg",
+      //   "/img/tax-bar-kota/event-gallery/14.jpg",
+      //   "/img/tax-bar-kota/event-gallery/15.jpg",
+      //   "/img/tax-bar-kota/event-gallery/16.jpg",
+      //   "/img/tax-bar-kota/event-gallery/17.jpg",
+      // ],
     },
   }
     
