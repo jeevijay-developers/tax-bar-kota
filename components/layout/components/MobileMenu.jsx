@@ -80,7 +80,6 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
         <div className="menu__content">
           <ul
             className="menuNav js-navList -is-active"
-            style={{ maxHeight: "calc(100vh - 262px)", overflowY: "auto" }}
           >
             {currencies.map((elm, i) => (
               <li key={i} className="menuNav__item -has-submenu js-has-submenu">
