@@ -2,17 +2,24 @@
 import { destinationsEight } from "@/data/destinations";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { gallerySections, tourDataThreeA } from "@/data/tours";
 import { IoCloseSharp } from "react-icons/io5";
 import "./style.css";
-
-
+import { getGallery } from "@/server/api";
 
 export default function TrendingDestinationsTwo() {
   const [image, setImage] = useState("");
   const [viewBig, setViewBig] = useState(false);
   const [text, setText] = useState("");
+  const getClubGallery = async () => {
+    const res = await getGallery();
+    console.log("Gallery Data:", res);
+    
+  };
+  useEffect(() => {
+    getClubGallery();
+  }, []);
 
   const handleImageClick = (path, text) => {
     setImage(path);
