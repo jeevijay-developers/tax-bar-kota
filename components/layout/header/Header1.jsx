@@ -1,22 +1,25 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import HeaderSerch from "../components/HeaderSerch";
-import Destinations from "../components/Destinations";
-import Activities from "../components/Activities";
-// import Currency from "../components/Currency";
 import MobileMenu from "../components/MobileMenu";
 import Image from "next/image";
 import Link from "next/link";
+import "@/public/css/header1.css";
 import { useRouter } from "next/navigation";
+
+const MENU_ITEMS = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Events", href: "/events" },
+  { label: "Gallery", href: "/eventGallary" },
+  { label: "Contact", href: "/contact" },
+];
+
 export default function Header1() {
   const router = useRouter();
-  const pageNavigate = (pageName) => {
-    router.push(pageName);
-  };
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   const [addClass, setAddClass] = useState(false);
+  const [activeItem, setActiveItem] = useState("");
 
   // Add a class to the element when scrolled 50px
   const handleScroll = () => {
@@ -29,84 +32,78 @@ export default function Header1() {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-
-    // Cleanup the event listener when the component unmounts
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
+  // Set active menu item based on current path
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setActiveItem(window.location.pathname);
+    }
+  }, []);
+
   return (
     <>
       <header
-        className={`header -type-1 js-header ${addClass ? "-is-sticky" : ""}`}
+        className={`modern-header ${addClass ? "scrolled" : ""}`}
       >
-        <div className="header__container container" style={{ height: "80px" }}>
-          <div className="headerMobile__left">
+        <div className="header-container">
+          {/* Logo Section */}
+          <div className="logo-section">
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="header__menuBtn js-menu-button"
+              className="mobile-menu-btn"
+              aria-label="Open menu"
             >
-              <i className="icon-main-menu"></i>
+              <span className="hamburger-line"></span>
+              <span className="hamburger-line"></span>
+              <span className="hamburger-line"></span>
             </button>
-          </div>
-
-          <div className="header__logo">
-            <Link href="/" className="header__logo">
+            <Link href="/" className="logo-link">
               <Image
-                width="80"
-                height="50"
+                width={80}
+                height={50}
                 src="/logo/logo.png"
                 alt="logo icon"
                 priority
+                className="logo-image"
               />
             </Link>
-
-            {/* <div className="xl:d-none ml-30">
-              <HeaderSerch />
-            </div> */}
           </div>
 
-          <div className="headerMobile__right">
-            <button
-              onClick={() => pageNavigate("/tour-list-1")}
-              className="d-flex"
-            >
-              <i className="icon-search text-18"></i>
-            </button>
-
-            <button
-              onClick={() => pageNavigate("/login")}
-              className="d-flex ml-20"
-            >
-              <i className="icon-person text-18"></i>
-            </button>
-          </div>
-
-          <div className="header__right">
-            {/* <Destinations />
-            <Activities /> */}
-            {/* <Currency /> */}
-            {/* <Link href="/register" className="ml-10">
-              Sign up
-            </Link>
-
-            <Link
-              href="/login"
-              className="button -sm -dark-1 bg-accent-1 rounded-200 text-white ml-30"
-            >
-              Log in
-            </Link> */}
-
-            <button
-              onClick={() => setMobileMenuOpen(true)}
-              className="header__menuBtn ml-30 js-menu-button"
-            >
-              <i className="icon-main-menu"></i>
-            </button>
-          </div>
+          {/* Desktop Navigation */}
+          <nav className="desktop-nav">
+            <ul className="nav-list">
+              {MENU_ITEMS.map((item) => (
+                <li key={item.href} className="nav-item">
+                  <Link
+                    href={item.href}
+                    className={`nav-link ${activeItem === item.href ? "active" : ""
+                      }`}
+                    onClick={() => setActiveItem(item.href)}
+                  >
+                    {item.label}
+                    <span className="nav-link-underline"></span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+            {/* Profile Section */}
+            <div className="profile-section">
+              <button
+                onClick={() => router.push("/login")}
+                className="profile-btn"
+                aria-label="Profile"
+              >
+                <i className="icon-person"></i>
+              </button>
+            </div>
         </div>
       </header>
+
       <MobileMenu
         setMobileMenuOpen={setMobileMenuOpen}
         mobileMenuOpen={mobileMenuOpen}

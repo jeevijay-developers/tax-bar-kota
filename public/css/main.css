@@ -12346,15 +12346,6 @@ h1, h2, h3, h4, h5, h6 {
   height: 100px;
 }
 
-.mt-header {
-  margin-top: 88px;
-}
-
-@media (max-width: 767px) {
-  .mt-header {
-    margin-top: 57px;
-  }
-}
 
 .map {
   height: 500px;

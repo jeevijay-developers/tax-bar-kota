@@ -8,7 +8,7 @@ export default function LetsGetStarted() {
             <div className="container">
                 <div className="cta-card p-4 p-md-5 rounded-4">
                     <div className="row align-items-center">
-                        <div className="col-lg-7 col-md-6 mb-4 mb-md-0">
+                        <div data-aos="fade-right" className="col-lg-7 col-md-6 mb-4 mb-md-0">
                             <h2 className="fw-bold text-dark mb-3" style={{ fontSize: "2.2rem" }}>
                                 Become a Member of <span className="text-primary">Tax Bar Association</span>
                             </h2>
@@ -28,7 +28,7 @@ export default function LetsGetStarted() {
                                 </Link>
                             </div>
                         </div>
-                        <div className="col-lg-5 col-md-6 position-relative">
+                        <div data-aos="fade-left" className="col-lg-5 col-md-6 position-relative">
                             <div className="cta-image-container p-3 bg-light rounded-4 text-center">
                                 <Image 
                                     src="/img/avatars/1/CTA-image.png" 
