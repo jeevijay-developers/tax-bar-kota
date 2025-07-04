@@ -144,8 +144,8 @@
     background: linear-gradient(135deg, #ff8547, #ffb08a);
     border: none;
     border-radius: 50%;
-    color: white;
-    font-size: 1.5rem;
+    color: rgb(0, 0, 0);
+    font-size: 1.2rem;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 12px rgba(255, 133, 71, 0.18);

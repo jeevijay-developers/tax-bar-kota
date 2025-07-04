@@ -26,8 +26,8 @@ export default function TrendingDestinationsTwo() {
 
   return (
     <section
-      className="layout-pt-xl layout-pb-xl "
-      style={{ backgroundColor: "rgb(209 213 219)" }}
+      className="layout-pt-sm layout-pb-xl "
+      style={{ backgroundColor: "#fcf9f7" }}
     >
       <div className="container">
         {gallerySections.map((section, idx) => (
