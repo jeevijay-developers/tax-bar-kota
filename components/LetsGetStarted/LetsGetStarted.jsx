@@ -17,9 +17,9 @@ export default function LetsGetStarted() {
                             </p>
                             <div className="d-flex gap-3 flex-wrap">
                                 <Link href="/join-tba" legacyBehavior>
-                                    <a className="btn cta-primary-btn px-4 py-3 rounded-pill fw-semibold">
+                                    <div style={{cursor: "pointer"}} className="btn cta-primary-btn px-4 py-3 rounded-pill fw-semibold">
                                         Join Tax Bar Association
-                                    </a>
+                                    </div>
                                 </Link>
                                 <Link href="/about" legacyBehavior>
                                     <a className="btn cta-secondary-btn px-4 py-3 rounded-pill fw-semibold">
@@ -38,7 +38,9 @@ export default function LetsGetStarted() {
                                     className="img-fluid"
                                     style={{ width: "40%", height: "auto", borderRadius: "100%" }}
                                 />
-                                <div className="badge-floating">Join Us Today!</div>
+                                <Link href="/join-tba" legacyBehavior>
+                                    <div style={{cursor: "pointer"}} className="badge-floating">Join Us Today!</div>
+                                </Link>
                             </div>
                         </div>
                     </div>
