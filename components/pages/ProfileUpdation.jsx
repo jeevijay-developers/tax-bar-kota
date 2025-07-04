@@ -131,7 +131,7 @@ const ProfileUpdation = () => {
     <>
       <style jsx>{`
         .profile-container {
-          background: #F9FAFB,
+          background: #E0E0E0,
           min-height: 100vh;
           padding: 40px 0;
         }
@@ -144,7 +144,7 @@ const ProfileUpdation = () => {
         }
         
         .profile-header {
-          background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+          background: #FFD3C9;
           color: white;
           padding: 40px;
           text-align: center;
@@ -154,7 +154,7 @@ const ProfileUpdation = () => {
           font-size: 2.5rem;
           font-weight: 700;
           margin-bottom: 10px;
-          text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        
         }
         
         .profile-subtitle {
@@ -167,14 +167,14 @@ const ProfileUpdation = () => {
           border-radius: 15px;
           padding: 25px;
           margin-bottom: 25px;
-          border-left: 5px solid #4CAF50;
+          border-left: 5px solid #ff8547;
           transition: all 0.3s ease;
         }
         
-        .section-card:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
+        // .section-card:hover {
+        //   transform: translateY(-2px);
+        //   box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        // }
         
         .section-title {
           color: #2c3e50;
@@ -212,58 +212,58 @@ const ProfileUpdation = () => {
         }
         
         .btn-edit {
-          background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+          background:  #FF6B49;
           border: none;
           border-radius: 25px;
           padding: 12px 30px;
           font-weight: 600;
           color: white;
           transition: all 0.3s ease;
-          box-shadow: 0 4px 15px rgba(0,123,255,0.3);
+          
         }
         
         .btn-edit:hover {
           transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(0,123,255,0.4);
-          color: white;
+        //   box-shadow: 0 6px 20px ;
+          
         }
         
         .btn-save {
-          background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+          background:  #FF6B49;
           border: none;
           border-radius: 25px;
           padding: 10px 25px;
           font-weight: 600;
           color: white;
           transition: all 0.3s ease;
-          box-shadow: 0 4px 15px rgba(40,167,69,0.3);
+        //   box-shadow: 0 4px 15px ;
         }
         
         .btn-save:hover {
           transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(40,167,69,0.4);
-          color: white;
+        //   box-shadow: 0 6px 20px rgba(40,167,69,0.4);
+          
         }
         
         .btn-cancel {
-          background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+          background: #f3f4f6;
           border: none;
           border-radius: 25px;
           padding: 10px 25px;
           font-weight: 600;
-          color: white;
+          color: black;
           transition: all 0.3s ease;
-          box-shadow: 0 4px 15px rgba(108,117,125,0.3);
+          
         }
         
         .btn-cancel:hover {
           transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(108,117,125,0.4);
-          color: white;
+          
+          
         }
         
         .summary-card {
-          background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+          background: #ffd3c9;
           border-radius: 15px;
           padding: 25px;
           border-left: 5px solid #2196F3;
@@ -312,7 +312,7 @@ const ProfileUpdation = () => {
           height: 120px;
           border-radius: 50%;
           object-fit: cover;
-          border: 4px solid #4CAF50;
+          border: 4px solid #ff8547;
           margin-bottom: 15px;
           box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
@@ -321,18 +321,18 @@ const ProfileUpdation = () => {
           width: 120px;
           height: 120px;
           border-radius: 50%;
-          background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+          background: #ffd3c9;
           display: flex;
           align-items: center;
           justify-content: center;
-          border: 3px dashed #4CAF50;
+          border: 3px dashed #ff8547;
           margin-bottom: 15px;
           font-size: 40px;
           color: #4CAF50;
         }
         
         .photo-upload-btn {
-          background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+          background: #FF6B49;
           border: none;
           border-radius: 20px;
           padding: 8px 20px;
@@ -352,7 +352,7 @@ const ProfileUpdation = () => {
           display: none;
         }
 
-        // ...existing styles...
+        
       `}</style>
 
       <div className="profile-container">
