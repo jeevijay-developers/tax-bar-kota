@@ -1,3 +1,34 @@
+export const gallerySections = [
+  {
+    title: "Old Memories",
+    images: [{ src: "/img/tax-bar-kota/event-gallery/1.jpg", title: "" }],
+  },
+  {
+    title: "Diwali Meet 23.10.2017",
+    images: [
+      { src: "/img/tax-bar-kota/event-gallery/2.jpg", title: "" },
+      { src: "/img/tax-bar-kota/event-gallery/3.jpg", title: "" },
+      { src: "/img/tax-bar-kota/event-gallery/4.jpg", title: "" },
+      { src: "/img/tax-bar-kota/event-gallery/5.jpg", title: "" },
+      { src: "/img/tax-bar-kota/event-gallery/6.jpg", title: "" },
+      { src: "/img/tax-bar-kota/event-gallery/7.jpg", title: "" },
+      { src: "/img/tax-bar-kota/event-gallery/8.jpg", title: "" },
+      { src: "/img/tax-bar-kota/event-gallery/9.jpg", title: "" },
+      { src: "/img/tax-bar-kota/event-gallery/10.jpg", title: "" },
+      { src: "/img/tax-bar-kota/event-gallery/11.jpg", title: "" },
+    ],
+  },
+  {
+    title: "GST Workshop 12 to 13.08.2017",
+    images: [
+      { src: "/img/tax-bar-kota/event-gallery/12.jpg", title: "" },
+      { src: "/img/tax-bar-kota/event-gallery/13.jpg", title: "" },
+      { src: "/img/tax-bar-kota/event-gallery/14.jpg", title: "" },
+      { src: "/img/tax-bar-kota/event-gallery/15.jpg", title: "" },
+      { src: "/img/tax-bar-kota/event-gallery/16.jpg", title: "" },
+    ],
+  },
+];
 export const tourData = [
   {
     id: 1,
@@ -416,12 +447,14 @@ export const tourDataThree = [
   },
 ];
 
+
+
 export const tourDataThreeA = [
   {
     id: 15,
-    imageSrc: "/img/clubgallary/cg1.jpg",
+    imageSrc: "/img/tax-bar-kota/event-gallery/1.jpg",
     location: "Paris, France",
-    title: "A view of ummed club",
+    title: "Members 1978",
     rating: 5,
     ratingCount: 269,
     duration: "4 days",

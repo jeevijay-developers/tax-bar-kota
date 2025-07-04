@@ -20,21 +20,25 @@ const currencies = [
     location: "/about",
   },
   {
+    title: "Gallary",
+    location: "/clubGallary",
+  },
+  {
     title: "Event Gallary",
     location: "/eventGallary",
   },
   {
     title: "Committee",
-    location: null,    //clubGallary
+    location: null, //clubGallary
   },
   {
     title: "Commissionorate",
-    location: null,              //events
+    location: null, //events
   },
 
   {
     title: "Resources",
-    location: null,                //tour-list-6
+    location: null, //tour-list-6
   },
 
   {
@@ -85,8 +89,8 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
                     <span>{elm.title}</span>
                   </Link>
                 ) : (
-                  <a 
-                    style={{ cursor: 'default' }}
+                  <a
+                    style={{ cursor: "default" }}
                     onClick={(e) => e.preventDefault()}
                   >
                     <span>{elm.title}</span>
