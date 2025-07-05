@@ -59,8 +59,7 @@ export default function DestinationsOne() {
             >
               {destinations.map((elm, i) => (
                 <SwiperSlide key={i}>
-                  <a
-                    href="#"
+                  <div
                     className="featureImage -type-1 text-center -hover-image-scale"
                   >
                     <div className="featureImage__image mx-auto rounded-full -hover-image-scale__image">
@@ -79,7 +78,7 @@ export default function DestinationsOne() {
                     {/* <p className="featureImage__text text-14">
                       {elm.tourCount}+ Tours
                     </p> */}
-                  </a>
+                  </div>
                 </SwiperSlide>
               ))}
             </Swiper>

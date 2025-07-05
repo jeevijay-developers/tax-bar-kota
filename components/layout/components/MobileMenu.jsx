@@ -20,21 +20,21 @@ const currencies = [
     location: "/about",
   },
   {
-    title: "Gallary",
-    location: "/clubGallary",
+    title: "Gallery",
+    location: "/clubGallery",
   },
   {
-    title: "Event Gallery",
+    title: "Event",
     location: "/eventGallery",
   },
-  {
-    title: "Committee",
-    location: null, //clubGallary
-  },
-  {
-    title: "Commissionorate",
-    location: null, //events
-  },
+  // {
+  //   title: "Committee",
+  //   location: null, //clubGallary
+  // },
+  // {
+  //   title: "Commissionorate",
+  //   location: null, //events
+  // },
 
   {
     title: "Resources",
