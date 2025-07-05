@@ -1,53 +1,109 @@
 "use client";
 import { updateUser } from '@/server/api';
-import React, { useState } from 'react';
+import { getUserDetails } from "@/server/api";
+import React, { useEffect, useState } from "react";
 
 const ProfileUpdation = () => {
+  
   // Dummy data as initial state
   const [formData, setFormData] = useState({
-    username: "jane_smith",
-    password: "SuperSecret@456",
+    username: "",
+    password: "",
     name: {
-      firstname: "Jane",
-      middlename: "A.",
-      lastname: "Smith"
+      firstname: "",
+      middlename: "",
+      lastname: "",
     },
-    profession: "Software Engineer",
+    profession: "",
     profilePhoto: null, // For storing uploaded photo
     email: {
-      primary: "jane.smith@email.com",
-      alternate: "j.smith@altmail.com"
+      primary: "",
+      alternate: "",
     },
     phone: {
-      primary: "9876543210",
-      alternate: "1122334455"
+      primary: "",
+      alternate: "",
     },
-    bloodGroup: "ab+",
+    bloodGroup: "",
     maritalInfo: {
-      status: "married",
-      spouseName: "Mike Smith",
-      date: "2019-06-15"
+      status: "",
+      spouseName: "",
+      date: "",
     },
-    gender: "female",
-    DOB: "1990-03-25",
+    gender: "",
+    DOB: "",
     address: {
       residential: {
-        addressLine: "123 Maple Street",
-        pincode: "560001",
-        city: "Bangalore",
-        state: "Karnataka",
-        phone: "9876543210"
+        addressLine: "",
+        pincode: "",
+        city: "",
+        state: "",
+        phone: "",
       },
       office: {
-        addressLine: "456 Tech Park",
-        pincode: "560103",
-        city: "Bangalore",
-        state: "Karnataka",
-        phone: "1122334455"
-      }
-    }
+        addressLine: "",
+        pincode: "",
+        city: "",
+        state: "",
+        phone: "",
+      },
+    },
   });
-
+  
+  useEffect(() => {
+    const username = localStorage.getItem("tba-token");
+    if (username) {
+      getUserDetails(username)
+        .then((data) => {
+          const user = data.user;
+          setFormData({
+            username: user.username,
+            password: "", // Password shouldn't be pre-filled for security
+            name: {
+              firstname: user.name.firstname,
+              middlename: user.name.middlename,
+              lastname: user.name.lastname,
+            },
+            profession: user.profession,
+            profilePhoto: null,
+            email: {
+              primary: user.email.primary,
+              alternate: user.email.alternate,
+            },
+            phone: {
+              primary: user.phone.primary,
+              alternate: user.phone.alternate,
+            },
+            bloodGroup: user.bloodGroup.toLowerCase(),
+            maritalInfo: {
+              status: user.maritalInfo.status,
+              spouseName: user.maritalInfo.spouseName,
+              date: user.maritalInfo.date,
+            },
+            gender: user.gender,
+            DOB: user.DOB,
+            address: {
+              residential: {
+                addressLine: user.address.residential.addressLine,
+                pincode: user.address.residential.pincode,
+                city: user.address.residential.city,
+                state: user.address.residential.state,
+                phone: user.address.residential.phone,
+              },
+              office: {
+                addressLine: user.address.office.addressLine,
+                pincode: user.address.office.pincode,
+                city: user.address.office.city,
+                state: user.address.office.state,
+                phone: user.address.office.phone,
+              },
+            },
+          });
+          setProfilePhotoPreview(user.image);
+        })
+        .catch((e) => console.log(e));
+    }
+  }, []);
   const [profilePhotoPreview, setProfilePhotoPreview] = useState(null);
 
   const [isEditing, setIsEditing] = useState(false);
@@ -157,10 +213,7 @@ const ProfileUpdation = () => {
                         <i className="fas fa-save me-2"></i>
                         Save
                       </button>
-                      <button
-                        onClick={handleCancel}
-                        className="btn btn-cancel"
-                      >
+                      <button onClick={handleCancel} className="btn btn-cancel">
                         <i className="fas fa-times me-2"></i>
                         Cancel
                       </button>
@@ -183,9 +236,7 @@ const ProfileUpdation = () => {
                             className="profile-photo-preview"
                           />
                         ) : (
-                          <div className="photo-placeholder">
-                            👤
-                          </div>
+                          <div className="photo-placeholder">👤</div>
                         )}
                         {isEditing && (
                           <>
@@ -196,8 +247,14 @@ const ProfileUpdation = () => {
                               accept="image/*"
                               onChange={handlePhotoUpload}
                             />
-                            <label htmlFor="profilePhoto" className="photo-upload-btn">
-                              📷 {profilePhotoPreview ? 'Change Photo' : 'Upload Photo'}
+                            <label
+                              htmlFor="profilePhoto"
+                              className="photo-upload-btn"
+                            >
+                              📷{" "}
+                              {profilePhotoPreview
+                                ? "Change Photo"
+                                : "Upload Photo"}
                             </label>
                           </>
                         )}
@@ -211,7 +268,7 @@ const ProfileUpdation = () => {
                             type="text"
                             className="form-control custom-input"
                             value={formData.username}
-                            onChange={(e) => handleChange(e, 'username')}
+                            onChange={(e) => handleChange(e, "username")}
                             disabled={!isEditing}
                           />
                         </div>
@@ -225,7 +282,7 @@ const ProfileUpdation = () => {
                             type="text"
                             className="form-control custom-input"
                             value={formData.profession}
-                            onChange={(e) => handleChange(e, 'profession')}
+                            onChange={(e) => handleChange(e, "profession")}
                             disabled={!isEditing}
                           />
                         </div>
@@ -242,7 +299,7 @@ const ProfileUpdation = () => {
                             type="text"
                             className="form-control custom-input"
                             value={formData.name.firstname}
-                            onChange={(e) => handleNameChange(e, 'firstname')}
+                            onChange={(e) => handleNameChange(e, "firstname")}
                             disabled={!isEditing}
                           />
                         </div>
@@ -252,7 +309,7 @@ const ProfileUpdation = () => {
                             type="text"
                             className="form-control custom-input"
                             value={formData.name.middlename}
-                            onChange={(e) => handleNameChange(e, 'middlename')}
+                            onChange={(e) => handleNameChange(e, "middlename")}
                             disabled={!isEditing}
                           />
                         </div>
@@ -262,7 +319,7 @@ const ProfileUpdation = () => {
                             type="text"
                             className="form-control custom-input"
                             value={formData.name.lastname}
-                            onChange={(e) => handleNameChange(e, 'lastname')}
+                            onChange={(e) => handleNameChange(e, "lastname")}
                             disabled={!isEditing}
                           />
                         </div>
@@ -281,17 +338,23 @@ const ProfileUpdation = () => {
                               type="email"
                               className="form-control custom-input"
                               value={formData.email.primary}
-                              onChange={(e) => handleNestedChange(e, 'email', 'primary')}
+                              onChange={(e) =>
+                                handleNestedChange(e, "email", "primary")
+                              }
                               disabled={!isEditing}
                             />
                           </div>
                           <div className="mb-3">
-                            <label className="form-label">Alternate Email</label>
+                            <label className="form-label">
+                              Alternate Email
+                            </label>
                             <input
                               type="email"
                               className="form-control custom-input"
                               value={formData.email.alternate}
-                              onChange={(e) => handleNestedChange(e, 'email', 'alternate')}
+                              onChange={(e) =>
+                                handleNestedChange(e, "email", "alternate")
+                              }
                               disabled={!isEditing}
                             />
                           </div>
@@ -304,17 +367,23 @@ const ProfileUpdation = () => {
                               type="tel"
                               className="form-control custom-input"
                               value={formData.phone.primary}
-                              onChange={(e) => handleNestedChange(e, 'phone', 'primary')}
+                              onChange={(e) =>
+                                handleNestedChange(e, "phone", "primary")
+                              }
                               disabled={!isEditing}
                             />
                           </div>
                           <div className="mb-3">
-                            <label className="form-label">Alternate Phone</label>
+                            <label className="form-label">
+                              Alternate Phone
+                            </label>
                             <input
                               type="tel"
                               className="form-control custom-input"
                               value={formData.phone.alternate}
-                              onChange={(e) => handleNestedChange(e, 'phone', 'alternate')}
+                              onChange={(e) =>
+                                handleNestedChange(e, "phone", "alternate")
+                              }
                               disabled={!isEditing}
                             />
                           </div>
@@ -331,7 +400,7 @@ const ProfileUpdation = () => {
                           <select
                             className="form-select custom-input"
                             value={formData.gender}
-                            onChange={(e) => handleChange(e, 'gender')}
+                            onChange={(e) => handleChange(e, "gender")}
                             disabled={!isEditing}
                           >
                             <option value="">Select Gender</option>
@@ -346,7 +415,7 @@ const ProfileUpdation = () => {
                             type="date"
                             className="form-control custom-input"
                             value={formData.DOB}
-                            onChange={(e) => handleChange(e, 'DOB')}
+                            onChange={(e) => handleChange(e, "DOB")}
                             disabled={!isEditing}
                           />
                         </div>
@@ -355,7 +424,7 @@ const ProfileUpdation = () => {
                           <select
                             className="form-select custom-input"
                             value={formData.bloodGroup}
-                            onChange={(e) => handleChange(e, 'bloodGroup')}
+                            onChange={(e) => handleChange(e, "bloodGroup")}
                             disabled={!isEditing}
                           >
                             <option value="">Select Blood Group</option>
@@ -381,7 +450,9 @@ const ProfileUpdation = () => {
                           <select
                             className="form-select custom-input"
                             value={formData.maritalInfo.status}
-                            onChange={(e) => handleNestedChange(e, 'maritalInfo', 'status')}
+                            onChange={(e) =>
+                              handleNestedChange(e, "maritalInfo", "status")
+                            }
                             disabled={!isEditing}
                           >
                             <option value="">Select Status</option>
@@ -391,7 +462,7 @@ const ProfileUpdation = () => {
                             <option value="widowed">Widowed</option>
                           </select>
                         </div>
-                        {formData.maritalInfo.status === 'married' && (
+                        {formData.maritalInfo.status === "married" && (
                           <>
                             <div className="col-md-4 mb-3">
                               <label className="form-label">Spouse Name</label>
@@ -399,17 +470,27 @@ const ProfileUpdation = () => {
                                 type="text"
                                 className="form-control custom-input"
                                 value={formData.maritalInfo.spouseName}
-                                onChange={(e) => handleNestedChange(e, 'maritalInfo', 'spouseName')}
+                                onChange={(e) =>
+                                  handleNestedChange(
+                                    e,
+                                    "maritalInfo",
+                                    "spouseName"
+                                  )
+                                }
                                 disabled={!isEditing}
                               />
                             </div>
                             <div className="col-md-4 mb-3">
-                              <label className="form-label">Marriage Date</label>
+                              <label className="form-label">
+                                Marriage Date
+                              </label>
                               <input
                                 type="date"
                                 className="form-control custom-input"
                                 value={formData.maritalInfo.date}
-                                onChange={(e) => handleNestedChange(e, 'maritalInfo', 'date')}
+                                onChange={(e) =>
+                                  handleNestedChange(e, "maritalInfo", "date")
+                                }
                                 disabled={!isEditing}
                               />
                             </div>
@@ -424,7 +505,9 @@ const ProfileUpdation = () => {
 
                       {/* Residential Address */}
                       <div className="mb-4">
-                        <h3 className="subsection-title">🏠 Residential Address</h3>
+                        <h3 className="subsection-title">
+                          🏠 Residential Address
+                        </h3>
                         <div className="row">
                           <div className="col-12 mb-3">
                             <label className="form-label">Address Line</label>
@@ -432,7 +515,13 @@ const ProfileUpdation = () => {
                               type="text"
                               className="form-control custom-input"
                               value={formData.address.residential.addressLine}
-                              onChange={(e) => handleAddressChange(e, 'residential', 'addressLine')}
+                              onChange={(e) =>
+                                handleAddressChange(
+                                  e,
+                                  "residential",
+                                  "addressLine"
+                                )
+                              }
                               disabled={!isEditing}
                             />
                           </div>
@@ -442,7 +531,9 @@ const ProfileUpdation = () => {
                               type="text"
                               className="form-control custom-input"
                               value={formData.address.residential.city}
-                              onChange={(e) => handleAddressChange(e, 'residential', 'city')}
+                              onChange={(e) =>
+                                handleAddressChange(e, "residential", "city")
+                              }
                               disabled={!isEditing}
                             />
                           </div>
@@ -452,7 +543,9 @@ const ProfileUpdation = () => {
                               type="text"
                               className="form-control custom-input"
                               value={formData.address.residential.state}
-                              onChange={(e) => handleAddressChange(e, 'residential', 'state')}
+                              onChange={(e) =>
+                                handleAddressChange(e, "residential", "state")
+                              }
                               disabled={!isEditing}
                             />
                           </div>
@@ -462,7 +555,9 @@ const ProfileUpdation = () => {
                               type="text"
                               className="form-control custom-input"
                               value={formData.address.residential.pincode}
-                              onChange={(e) => handleAddressChange(e, 'residential', 'pincode')}
+                              onChange={(e) =>
+                                handleAddressChange(e, "residential", "pincode")
+                              }
                               disabled={!isEditing}
                             />
                           </div>
@@ -472,7 +567,9 @@ const ProfileUpdation = () => {
                               type="tel"
                               className="form-control custom-input"
                               value={formData.address.residential.phone}
-                              onChange={(e) => handleAddressChange(e, 'residential', 'phone')}
+                              onChange={(e) =>
+                                handleAddressChange(e, "residential", "phone")
+                              }
                               disabled={!isEditing}
                             />
                           </div>
@@ -489,7 +586,9 @@ const ProfileUpdation = () => {
                               type="text"
                               className="form-control custom-input"
                               value={formData.address.office.addressLine}
-                              onChange={(e) => handleAddressChange(e, 'office', 'addressLine')}
+                              onChange={(e) =>
+                                handleAddressChange(e, "office", "addressLine")
+                              }
                               disabled={!isEditing}
                             />
                           </div>
@@ -499,7 +598,9 @@ const ProfileUpdation = () => {
                               type="text"
                               className="form-control custom-input"
                               value={formData.address.office.city}
-                              onChange={(e) => handleAddressChange(e, 'office', 'city')}
+                              onChange={(e) =>
+                                handleAddressChange(e, "office", "city")
+                              }
                               disabled={!isEditing}
                             />
                           </div>
@@ -509,7 +610,9 @@ const ProfileUpdation = () => {
                               type="text"
                               className="form-control custom-input"
                               value={formData.address.office.state}
-                              onChange={(e) => handleAddressChange(e, 'office', 'state')}
+                              onChange={(e) =>
+                                handleAddressChange(e, "office", "state")
+                              }
                               disabled={!isEditing}
                             />
                           </div>
@@ -519,7 +622,9 @@ const ProfileUpdation = () => {
                               type="text"
                               className="form-control custom-input"
                               value={formData.address.office.pincode}
-                              onChange={(e) => handleAddressChange(e, 'office', 'pincode')}
+                              onChange={(e) =>
+                                handleAddressChange(e, "office", "pincode")
+                              }
                               disabled={!isEditing}
                             />
                           </div>
@@ -529,7 +634,9 @@ const ProfileUpdation = () => {
                               type="tel"
                               className="form-control custom-input"
                               value={formData.address.office.phone}
-                              onChange={(e) => handleAddressChange(e, 'office', 'phone')}
+                              onChange={(e) =>
+                                handleAddressChange(e, "office", "phone")
+                              }
                               disabled={!isEditing}
                             />
                           </div>
@@ -544,16 +651,36 @@ const ProfileUpdation = () => {
                       <h2 className="summary-title">📊 Profile Summary</h2>
                       <div className="row">
                         <div className="col-md-6">
-                          <div className="summary-item"><strong>Full Name:</strong> {`${formData.name.firstname} ${formData.name.middlename} ${formData.name.lastname}`.trim()}</div>
-                          <div className="summary-item"><strong>Username:</strong> {formData.username}</div>
-                          <div className="summary-item"><strong>Profession:</strong> {formData.profession}</div>
-                          <div className="summary-item"><strong>Primary Email:</strong> {formData.email.primary}</div>
+                          <div className="summary-item">
+                            <strong>Full Name:</strong>{" "}
+                            {`${formData.name.firstname} ${formData.name.middlename} ${formData.name.lastname}`.trim()}
+                          </div>
+                          <div className="summary-item">
+                            <strong>Username:</strong> {formData.username}
+                          </div>
+                          <div className="summary-item">
+                            <strong>Profession:</strong> {formData.profession}
+                          </div>
+                          <div className="summary-item">
+                            <strong>Primary Email:</strong>{" "}
+                            {formData.email.primary}
+                          </div>
                         </div>
                         <div className="col-md-6">
-                          <div className="summary-item"><strong>Primary Phone:</strong> {formData.phone.primary}</div>
-                          <div className="summary-item"><strong>Blood Group:</strong> {formData.bloodGroup?.toUpperCase()}</div>
-                          <div className="summary-item"><strong>Gender:</strong> {formData.gender}</div>
-                          <div className="summary-item"><strong>DOB:</strong> {formData.DOB}</div>
+                          <div className="summary-item">
+                            <strong>Primary Phone:</strong>{" "}
+                            {formData.phone.primary}
+                          </div>
+                          <div className="summary-item">
+                            <strong>Blood Group:</strong>{" "}
+                            {formData.bloodGroup?.toUpperCase()}
+                          </div>
+                          <div className="summary-item">
+                            <strong>Gender:</strong> {formData.gender}
+                          </div>
+                          <div className="summary-item">
+                            <strong>DOB:</strong> {formData.DOB}
+                          </div>
                         </div>
                       </div>
                     </div>

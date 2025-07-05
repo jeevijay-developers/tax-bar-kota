@@ -68,3 +68,12 @@ export async function updateUser(id, data) {
     throw err.response?.data || err.message;
   }
 }
+
+export async function getUserDetails(username) {
+  try {
+    const res = await axios.get(`${API_BASE}/api/user/getuser/${username}`);
+    return res.data;
+  } catch (err) {
+    throw err.response?.data || err.message;
+  }
+}
