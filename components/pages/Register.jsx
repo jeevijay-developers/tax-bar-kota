@@ -2,8 +2,10 @@
 import React, { useEffect, useState } from "react";
 import { registerUser } from "@/server/api";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 const Register = () => {
+  const router = useRouter();
   const [formData, setFormData] = React.useState({
     username: "",
     password: "",
@@ -128,6 +130,7 @@ const Register = () => {
       const res = await registerUser({user:formData});
       toast.success("Registration successful! Please login.");
       console.log("Response:", res);
+      router.push('/auth/login')
     } catch (err) {
       toast.error(err.message || "Registration failed");
       console.log("Response:", err);
