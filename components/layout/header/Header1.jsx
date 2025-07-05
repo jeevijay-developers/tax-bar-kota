@@ -6,6 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import "@/public/css/header1.css";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
+import { LogOut } from "lucide-react";
 
 const MENU_ITEMS = [
   { label: "Home", href: "/" },
@@ -30,6 +32,23 @@ export default function Header1() {
     }
   };
 
+  const checkToken = () => {
+    const user = localStorage.getItem("tba-token");
+    if (user) {
+      console.log("user", user);
+      router.push("profile-update");
+    } else {
+      router.push("/auth/login");
+    }
+  };
+  const handleLogout = () => {
+    const user = localStorage.getItem("tba-token");
+    if (user) {
+      localStorage.removeItem("tba-token");
+      router.push("/");
+      toast.success("logout successfully");
+    }
+  };
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -46,9 +65,7 @@ export default function Header1() {
 
   return (
     <>
-      <header
-        className={`modern-header ${addClass ? "scrolled" : ""}`}
-      >
+      <header className={`modern-header ${addClass ? "scrolled" : ""}`}>
         <div className="header-container">
           {/* Logo Section */}
           <div className="logo-section">
@@ -79,8 +96,9 @@ export default function Header1() {
                 <li key={item.href} className="nav-item">
                   <Link
                     href={item.href}
-                    className={`nav-link ${activeItem === item.href ? "active" : ""
-                      }`}
+                    className={`nav-link ${
+                      activeItem === item.href ? "active" : ""
+                    }`}
                     onClick={() => setActiveItem(item.href)}
                   >
                     {item.label}
@@ -90,16 +108,27 @@ export default function Header1() {
               ))}
             </ul>
           </nav>
-            {/* Profile Section */}
+          {/* Profile Section */}
+          <div className="d-flex gap-3 profileWrapper">
             <div className="profile-section">
               <button
-                onClick={() => router.push("/profile-update")}
+                // onClick={() => router.push("/profile-update")}
+                onClick={() => checkToken()}
                 className="profile-btn"
                 aria-label="Profile"
               >
                 <i className="icon-person"></i>
               </button>
             </div>
+
+            <button
+              onClick={() => handleLogout()}
+              className="profile-btn"
+              aria-label="Logout"
+            >
+              <LogOut size={20} />
+            </button>
+          </div>
         </div>
       </header>
 
