@@ -1,0 +1,144 @@
+.timeline-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: #EB662B;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1px;
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 30px;
+}
+
+.timeline-left {
+    left: 0;
+    padding-right: 50px;
+}
+
+.timeline-right {
+    left: 50%;
+    padding-left: 50px;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: #EB662B;
+    border: 3px solid white;
+    border-radius: 50%;
+    top: 50px;
+}
+
+.timeline-left::after {
+    right: -8px;
+}
+
+.timeline-right::after {
+    left: -8px;
+}
+
+.featureCard {
+    text-align: center;
+}
+
+.featureCard:hover,
+.memberCard:hover,
+.activitiesCard:hover {
+    transform: translateY(-5px);
+}
+
+.absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hover-shadow-2:hover {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+.transition-all {
+    transition: all 0.3s ease;
+}
+
+/* Button margin for mobile */
+@media (max-width: 576px) {
+    .d-flex.flex-wrap.gap-20 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .d-flex.flex-wrap.gap-20 .button {
+        margin-bottom: 15px;
+        margin-right: 0 !important;
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .featureCard {
+        margin-bottom: 30px;
+    }
+
+    .memberCard {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    .timeline-container::after {
+        left: 20px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 50px;
+        padding-right: 25px;
+    }
+
+    .timeline-right {
+        left: 0%;
+    }
+
+    .timeline-left::after,
+    .timeline-right::after {
+        left: 12px;
+    }
+
+    /* Mobile responsive for structure items */
+    .col-6 {
+        margin-bottom: 20px;
+    }
+
+    /* Center align content on mobile */
+    .about-content {
+        text-align: center;
+    }
+
+    .about-content .d-flex {
+        justify-content: center;
+    }
+
+    .stats .text-center {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 991px) {
+    .about-image-desktop {
+        display: none !important;
+    }
+}

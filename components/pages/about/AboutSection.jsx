@@ -3,6 +3,7 @@
 import ModalVideoComponent from "@/components/common/ModalVideo";
 import Image from "next/image";
 import { useState } from "react";
+import styles from "@/public/css/aboutSection.module.css"
 
 export default function AboutSection() {
   const [isOpen, setIsOpen] = useState(false);
@@ -122,10 +123,10 @@ export default function AboutSection() {
               </div>
             </div>
 
-            <div className="col-lg-6 col-md-12">
-              <div className="about-image" data-aos="fade-left">
-                <div className="relative">
-                  <div className="overflow-hidden rounded-24">
+            <div className={"col-lg-6 col-md-12 " + styles["about-image-desktop"]}>
+              <div className={styles["about-image"]} data-aos="fade-left">
+                <div className={styles["relative"]}>
+                  <div className={styles["overflow-hidden"] + " " + styles["rounded-24"]}>
                     <Image
                       width={570}
                       height={600}
@@ -135,13 +136,11 @@ export default function AboutSection() {
                     />
                   </div>
                   
-                  
-
                   {/* Floating Card */}
-                  <div className="absolute bottom-30 left-30">
-                    <div className="bg-white rounded-16 px-30 py-20 shadow-2">
-                      <div className="d-flex items-center">
-                        <div className="size-50 bg-accent-1-05 rounded-12 d-flex items-center justify-center mr-15">
+                  <div className={styles["absolute"] + " " + styles["bottom-30"] + " " + styles["left-30"]}>
+                    <div className={styles["bg-white"] + " " + styles["rounded-16"] + " " + styles["px-30"] + " " + styles["py-20"] + " " + styles["shadow-2"]}>
+                      <div className={styles["d-flex"] + " " + styles["items-center"]}>
+                        <div className={styles["size-50"] + " " + styles["bg-accent-1-05"] + " " + styles["rounded-12"] + " " + styles["d-flex"] + " " + styles["items-center"] + " " + styles["justify-center"] + " " + styles["mr-15"]}>
                           <Image
                             width={24}
                             height={24}
@@ -150,8 +149,8 @@ export default function AboutSection() {
                           />
                         </div>
                         <div>
-                          <div className="text-16 fw-500 text-dark-1">Tax Professionals</div>
-                          <div className="text-14 text-dark-1" style={{opacity: 0.7}}>Since 1952</div>
+                          <div className={styles["text-16"] + " " + styles["fw-500"] + " " + styles["text-dark-1"]}>Tax Professionals</div>
+                          <div className={styles["text-14"] + " " + styles["text-dark-1"]} style={{opacity: 0.7}}>Since 1952</div>
                         </div>
                       </div>
                     </div>
@@ -224,20 +223,20 @@ export default function AboutSection() {
             </div>
           </div>
 
-          <div className="timeline-container">
+          <div className={styles["timeline-container"]}>
             {milestones.map((milestone, index) => (
               <div 
                 key={index} 
-                className={`timeline-item ${index % 2 === 0 ? 'timeline-left' : 'timeline-right'}`}
+                className={styles["timeline-item"] + " " + (index % 2 === 0 ? styles["timeline-left"] : styles["timeline-right"])}
                 data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
                 data-aos-delay={index * 100}
               >
-                <div className="timeline-content bg-white rounded-16 px-30 py-30 shadow-1">
-                  <div className="timeline-year text-accent-1 text-20 fw-700 mb-10">
+                <div className={styles["timeline-content"] + " bg-white rounded-16 px-30 py-30 shadow-1"}>
+                  <div className={styles["timeline-year"] + " text-accent-1 text-20 fw-700 mb-10"}>
                     {milestone.year}
                   </div>
-                  <h4 className="text-18 fw-500 text-dark-1 mb-15">{milestone.title}</h4>
-                  <p className="text-15 text-dark-1" style={{opacity: 0.7}}>{milestone.description}</p>
+                  <h4 className={styles["text-18"] + " fw-500 text-dark-1 mb-15"}>{milestone.title}</h4>
+                  <p className={styles["text-15"] + " text-dark-1"} style={{opacity: 0.7}}>{milestone.description}</p>
                 </div>
               </div>
             ))}
@@ -377,15 +376,15 @@ export default function AboutSection() {
       </section>
 
       {/* Call to Action */}
-      <section className="layout-pt-lg layout-pb-lg bg-dark-1">
+      <section className="layout-pt-lg layout-pb-lg" style={{ backgroundColor: '#f8f9fa' }}>
         <div className="container">
           <div className="row justify-center text-center">
             <div className="col-lg-8">
               <div data-aos="fade-up">
-                <h2 className="text-30 lg:text-24 fw-700 text-white mb-20">
+                <h2 className="text-30 lg:text-24 fw-700 text-black mb-20">
                   Join the Tax Bar Association, Kota
                 </h2>
-                <p className="text-16 text-white mb-40" style={{opacity: 0.8}}>
+                <p className="text-16 text-black mb-40" style={{opacity: 0.8}}>
                   Become part of a 70+ year legacy of tax professionals committed to 
                   excellence, ethics, and education in taxation.
                 </p>
@@ -393,7 +392,7 @@ export default function AboutSection() {
                   <button className="button -md -accent-1 bg-accent-1 text-white me-15 m-2">
                     Apply for Membership
                   </button>
-                  <button className="button -md -outline-white text-white m-2">
+                  <button className="button -md -outline-white text-black m-2">
                     Contact TBA Kota
                   </button>
                 </div>
@@ -409,147 +408,6 @@ export default function AboutSection() {
         isOpen={isOpen}
         setIsOpen={setIsOpen}
       />
-
-      <style jsx>{`
-        .timeline-container {
-          position: relative;
-          max-width: 1000px;
-          margin: 0 auto;
-        }
-
-        .timeline-container::after {
-          content: '';
-          position: absolute;
-          width: 2px;
-          background-color: #EB662B;
-          top: 0;
-          bottom: 0;
-          left: 50%;
-          margin-left: -1px;
-        }
-
-        .timeline-item {
-          position: relative;
-          width: 50%;
-          padding: 30px;
-        }
-
-        .timeline-left {
-          left: 0;
-          padding-right: 50px;
-        }
-
-        .timeline-right {
-          left: 50%;
-          padding-left: 50px;
-        }
-
-        .timeline-item::after {
-          content: '';
-          position: absolute;
-          width: 16px;
-          height: 16px;
-          background-color: #EB662B;
-          border: 3px solid white;
-          border-radius: 50%;
-          top: 50px;
-        }
-
-        .timeline-left::after {
-          right: -8px;
-        }
-
-        .timeline-right::after {
-          left: -8px;
-        }
-
-        .featureCard {
-          text-align: center;
-        }
-
-        .featureCard:hover,
-        .memberCard:hover,
-        .activitiesCard:hover {
-          transform: translateY(-5px);
-        }
-
-        .absolute-center {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-        }
-
-        .hover-shadow-2:hover {
-          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-        }
-
-        .transition-all {
-          transition: all 0.3s ease;
-        }
-
-        /* Button margin for mobile */
-        @media (max-width: 576px) {
-          .d-flex.flex-wrap.gap-20 {
-            flex-direction: column;
-            align-items: center;
-          }
-          
-          .d-flex.flex-wrap.gap-20 .button {
-            margin-bottom: 15px;
-            margin-right: 0 !important;
-            width: 100%;
-            max-width: 250px;
-          }
-          
-          .featureCard {
-            margin-bottom: 30px;
-          }
-          
-          .memberCard {
-            margin-bottom: 30px;
-          }
-        }
-
-        @media (max-width: 767px) {
-          .timeline-container::after {
-            left: 20px;
-          }
-
-          .timeline-item {
-            width: 100%;
-            padding-left: 50px;
-            padding-right: 25px;
-          }
-
-          .timeline-right {
-            left: 0%;
-          }
-
-          .timeline-left::after,
-          .timeline-right::after {
-            left: 12px;
-          }
-          
-          /* Mobile responsive for structure items */
-          .col-6 {
-            margin-bottom: 20px;
-          }
-          
-          /* Center align content on mobile */
-          .about-content {
-            text-align: center;
-          }
-          
-          .about-content .d-flex {
-            justify-content: center;
-          }
-          
-          .stats .text-center {
-            margin-bottom: 20px;
-          }
-        }
-      `}</style>
     </>
   );
 }

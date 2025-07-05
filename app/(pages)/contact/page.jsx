@@ -14,12 +14,11 @@ export default function page() {
   return (
     <>
       <main>
-        <Header1 />
-        <Map />
-        {/* <Locations /> */}
-        <ContactForm />
-
-        <FooterOne />
+          <Header1 />
+          <Map />
+          {/* <Locations /> */}
+          <ContactForm />
+          <FooterOne />
       </main>
     </>
   );

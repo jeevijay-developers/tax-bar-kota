@@ -80,12 +80,11 @@ export default function Header1() {
             </button>
             <Link href="/" className="logo-link">
               <Image
-                width={80}
-                height={50}
+                width={100}
+                height={100}
                 src="/logo/logo.png"
                 alt="logo icon"
                 priority
-                className="logo-image"
               />
             </Link>
           </div>
