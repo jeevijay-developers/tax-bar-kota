@@ -21,11 +21,14 @@ app.post("/api/auth/register-user", async (req, res) => {
 app.post("/api/auth/login-user", async (req, res) => {
   try {
     const response = await axios.post(`${BACKEND_URL}/login-user`, req.body);
+    console.log("Login response:", response.data);
+    
     res.status(response.status).json(response.data);
   } catch (err) {
     res.status(err.response?.status || 500).json(err.response?.data || { error: err.message });
   }
 });
+
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {

@@ -12,7 +12,7 @@ const ProfileUpdation = () => {
       lastname: "Smith"
     },
     profession: "Software Engineer",
-    profilePhoto: null, // For storing uploaded photo
+    profilePhoto: null,
     email: {
       primary: "jane.smith@email.com",
       alternate: "j.smith@altmail.com"
