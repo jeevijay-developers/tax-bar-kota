@@ -1,4 +1,5 @@
 "use client";
+import { updateUser } from '@/server/api';
 import React, { useState } from 'react';
 
 const ProfileUpdation = () => {
@@ -12,7 +13,7 @@ const ProfileUpdation = () => {
       lastname: "Smith"
     },
     profession: "Software Engineer",
-    profilePhoto: null,
+    profilePhoto: null, // For storing uploaded photo
     email: {
       primary: "jane.smith@email.com",
       alternate: "j.smith@altmail.com"
@@ -118,6 +119,7 @@ const ProfileUpdation = () => {
   const handleSave = () => {
     // Here you can add logic to save the updated profile
     console.log("Profile Updated:", formData);
+    updateUser(formData.username, formData)
     setIsEditing(false);
     alert("Profile updated successfully!");
   };
@@ -129,232 +131,6 @@ const ProfileUpdation = () => {
 
   return (
     <>
-      <style jsx>{`
-        .profile-container {
-          background: #E0E0E0,
-          min-height: 100vh;
-          padding: 40px 0;
-        }
-        
-        .profile-card {
-          background: white;
-          border-radius: 20px;
-          box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-          overflow: hidden;
-        }
-        
-        .profile-header {
-          background: #FFD3C9;
-          color: white;
-          padding: 40px;
-          text-align: center;
-        }
-        
-        .profile-title {
-          font-size: 2.5rem;
-          font-weight: 700;
-          margin-bottom: 10px;
-        
-        }
-        
-        .profile-subtitle {
-          font-size: 1.1rem;
-          opacity: 0.9;
-        }
-        
-        .section-card {
-          background: #f8f9fa;
-          border-radius: 15px;
-          padding: 25px;
-          margin-bottom: 25px;
-          border-left: 5px solid #ff8547;
-          transition: all 0.3s ease;
-        }
-        
-        // .section-card:hover {
-        //   transform: translateY(-2px);
-        //   box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        // }
-        
-        .section-title {
-          color: #2c3e50;
-          font-size: 1.4rem;
-          font-weight: 600;
-          margin-bottom: 20px;
-          display: flex;
-          align-items: center;
-        }
-        
-        .section-title::before {
-          content: "📋";
-          margin-right: 10px;
-          font-size: 1.2rem;
-        }
-        
-        .custom-input {
-          border: 2px solid #e1e5e9;
-          border-radius: 10px;
-          padding: 12px 15px;
-          transition: all 0.3s ease;
-          font-size: 14px;
-        }
-        
-        .custom-input:focus {
-          border-color: #4CAF50;
-          box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.25);
-          outline: none;
-        }
-        
-        .custom-input:disabled {
-          background-color: #f8f9fa;
-          border-color: #dee2e6;
-          color: #6c757d;
-        }
-        
-        .btn-edit {
-          background:  #FF6B49;
-          border: none;
-          border-radius: 25px;
-          padding: 12px 30px;
-          font-weight: 600;
-          color: white;
-          transition: all 0.3s ease;
-          
-        }
-        
-        .btn-edit:hover {
-          transform: translateY(-2px);
-        //   box-shadow: 0 6px 20px ;
-          
-        }
-        
-        .btn-save {
-          background:  #FF6B49;
-          border: none;
-          border-radius: 25px;
-          padding: 10px 25px;
-          font-weight: 600;
-          color: white;
-          transition: all 0.3s ease;
-        //   box-shadow: 0 4px 15px ;
-        }
-        
-        .btn-save:hover {
-          transform: translateY(-2px);
-        //   box-shadow: 0 6px 20px rgba(40,167,69,0.4);
-          
-        }
-        
-        .btn-cancel {
-          background: #f3f4f6;
-          border: none;
-          border-radius: 25px;
-          padding: 10px 25px;
-          font-weight: 600;
-          color: black;
-          transition: all 0.3s ease;
-          
-        }
-        
-        .btn-cancel:hover {
-          transform: translateY(-2px);
-          
-          
-        }
-        
-        .summary-card {
-          background: #ffd3c9;
-          border-radius: 15px;
-          padding: 25px;
-          border-left: 5px solid #2196F3;
-        }
-        
-        .summary-title {
-          color: #1565c0;
-          font-size: 1.5rem;
-          font-weight: 600;
-          margin-bottom: 20px;
-        }
-        
-        .summary-item {
-          padding: 8px 0;
-          border-bottom: 1px solid rgba(33,150,243,0.1);
-        }
-        
-        .summary-item:last-child {
-          border-bottom: none;
-        }
-        
-        .form-label {
-          font-weight: 600;
-          color: #495057;
-          margin-bottom: 8px;
-        }
-        
-        .subsection-title {
-          color: #495057;
-          font-size: 1.1rem;
-          font-weight: 600;
-          margin-bottom: 15px;
-          padding-bottom: 8px;
-          border-bottom: 2px solid #e9ecef;
-        }
-        
-        .profile-photo-container {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          margin-bottom: 20px;
-        }
-        
-        .profile-photo-preview {
-          width: 120px;
-          height: 120px;
-          border-radius: 50%;
-          object-fit: cover;
-          border: 4px solid #ff8547;
-          margin-bottom: 15px;
-          box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        
-        .photo-placeholder {
-          width: 120px;
-          height: 120px;
-          border-radius: 50%;
-          background: #ffd3c9;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border: 3px dashed #ff8547;
-          margin-bottom: 15px;
-          font-size: 40px;
-          color: #4CAF50;
-        }
-        
-        .photo-upload-btn {
-          background: #FF6B49;
-          border: none;
-          border-radius: 20px;
-          padding: 8px 20px;
-          color: white;
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          font-size: 14px;
-        }
-        
-        .photo-upload-btn:hover {
-          transform: translateY(-1px);
-          box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
-        }
-        
-        .photo-upload-input {
-          display: none;
-        }
-
-        
-      `}</style>
-
       <div className="profile-container">
         <div className="container">
           <div className="row justify-content-center">
@@ -363,7 +139,7 @@ const ProfileUpdation = () => {
                 <div className="profile-header mt-4">
                   <h1 className="profile-title">Profile Information</h1>
                   <p className="profile-subtitle">Manage your personal information</p>
-                  
+
                   {!isEditing ? (
                     <button
                       onClick={() => setIsEditing(true)}
@@ -397,13 +173,13 @@ const ProfileUpdation = () => {
                     {/* Basic Information */}
                     <div className="section-card">
                       <h2 className="section-title">Basic Information</h2>
-                      
+
                       {/* Profile Photo Section */}
                       <div className="profile-photo-container">
                         {profilePhotoPreview ? (
-                          <img 
-                            src={profilePhotoPreview} 
-                            alt="Profile Preview" 
+                          <img
+                            src={profilePhotoPreview}
+                            alt="Profile Preview"
                             className="profile-photo-preview"
                           />
                         ) : (
@@ -645,7 +421,7 @@ const ProfileUpdation = () => {
                     {/* Address Information */}
                     <div className="section-card">
                       <h2 className="section-title">Address Information</h2>
-                      
+
                       {/* Residential Address */}
                       <div className="mb-4">
                         <h3 className="subsection-title">🏠 Residential Address</h3>
@@ -788,6 +564,229 @@ const ProfileUpdation = () => {
           </div>
         </div>
       </div>
+            <style jsx>{`
+        .profile-container {
+          background: #E0E0E0,
+          min-height: 100vh;
+          padding: 40px 0;
+        }
+        
+        .profile-card {
+          background: white;
+          border-radius: 20px;
+          box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+          overflow: hidden;
+        }
+        
+        .profile-header {
+          background: #FFD3C9;
+          color: white;
+          padding: 40px;
+          text-align: center;
+        }
+        
+        .profile-title {
+          font-size: 2.5rem;
+          font-weight: 700;
+          margin-bottom: 10px;
+        
+        }
+        
+        .profile-subtitle {
+          font-size: 1.1rem;
+          opacity: 0.9;
+        }
+        
+        .section-card {
+          background: #f8f9fa;
+          border-radius: 15px;
+          padding: 25px;
+          margin-bottom: 25px;
+          border-left: 5px solid #ff8547;
+          transition: all 0.3s ease;
+        }
+        
+        // .section-card:hover {
+        //   transform: translateY(-2px);
+        //   box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        // }
+        
+        .section-title {
+          color: #2c3e50;
+          font-size: 1.4rem;
+          font-weight: 600;
+          margin-bottom: 20px;
+          display: flex;
+          align-items: center;
+        }
+        
+        .section-title::before {
+          content: "📋";
+          margin-right: 10px;
+          font-size: 1.2rem;
+        }
+        
+        .custom-input {
+          border: 2px solid #e1e5e9;
+          border-radius: 10px;
+          padding: 12px 15px;
+          transition: all 0.3s ease;
+          font-size: 14px;
+        }
+        
+        .custom-input:focus {
+          border-color: #4CAF50;
+          box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.25);
+          outline: none;
+        }
+        
+        .custom-input:disabled {
+          background-color: #f8f9fa;
+          border-color: #dee2e6;
+          color: #6c757d;
+        }
+        
+        .btn-edit {
+          background:  #FF6B49;
+          border: none;
+          border-radius: 25px;
+          padding: 12px 30px;
+          font-weight: 600;
+          color: white;
+          transition: all 0.3s ease;
+          
+        }
+        
+        .btn-edit:hover {
+          transform: translateY(-2px);
+        //   box-shadow: 0 6px 20px ;
+          
+        }
+        
+        .btn-save {
+          background:  #FF6B49;
+          border: none;
+          border-radius: 25px;
+          padding: 10px 25px;
+          font-weight: 600;
+          color: white;
+          transition: all 0.3s ease;
+        //   box-shadow: 0 4px 15px ;
+        }
+        
+        .btn-save:hover {
+          transform: translateY(-2px);
+        //   box-shadow: 0 6px 20px rgba(40,167,69,0.4);
+          
+        }
+        
+        .btn-cancel {
+          background: #f3f4f6;
+          border: none;
+          border-radius: 25px;
+          padding: 10px 25px;
+          font-weight: 600;
+          color: black;
+          transition: all 0.3s ease;
+          
+        }
+        
+        .btn-cancel:hover {
+          transform: translateY(-2px);
+          
+          
+        }
+        
+        .summary-card {
+          background: #ffd3c9;
+          border-radius: 15px;
+          padding: 25px;
+          border-left: 5px solid #2196F3;
+        }
+        
+        .summary-title {
+          color: #1565c0;
+          font-size: 1.5rem;
+          font-weight: 600;
+          margin-bottom: 20px;
+        }
+        
+        .summary-item {
+          padding: 8px 0;
+          border-bottom: 1px solid rgba(33,150,243,0.1);
+        }
+        
+        .summary-item:last-child {
+          border-bottom: none;
+        }
+        
+        .form-label {
+          font-weight: 600;
+          color: #495057;
+          margin-bottom: 8px;
+        }
+        
+        .subsection-title {
+          color: #495057;
+          font-size: 1.1rem;
+          font-weight: 600;
+          margin-bottom: 15px;
+          padding-bottom: 8px;
+          border-bottom: 2px solid #e9ecef;
+        }
+        
+        .profile-photo-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 20px;
+        }
+        
+        .profile-photo-preview {
+          width: 120px;
+          height: 120px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 4px solid #ff8547;
+          margin-bottom: 15px;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .photo-placeholder {
+          width: 120px;
+          height: 120px;
+          border-radius: 50%;
+          background: #ffd3c9;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 3px dashed #ff8547;
+          margin-bottom: 15px;
+          font-size: 40px;
+          color: #4CAF50;
+        }
+        
+        .photo-upload-btn {
+          background: #FF6B49;
+          border: none;
+          border-radius: 20px;
+          padding: 8px 20px;
+          color: white;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          font-size: 14px;
+        }
+        
+        .photo-upload-btn:hover {
+          transform: translateY(-1px);
+          box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+        
+        .photo-upload-input {
+          display: none;
+        }        
+      `}</style>
     </>
   );
 };

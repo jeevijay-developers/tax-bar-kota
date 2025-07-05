@@ -59,3 +59,12 @@ export async function getEventGallery() {
     throw err.response?.data || err.message;
   }
 }
+
+export async function updateUser(id, data) {
+  try {
+    const res = await axios.put(`${API_BASE}/api/users/${id}`, data);
+    return res.data;
+  } catch (err) {
+    throw err.response?.data || err.message;
+  }
+}
