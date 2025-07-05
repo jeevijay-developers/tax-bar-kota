@@ -69,9 +69,9 @@ export async function updateUser(id, data) {
   }
 }
 
-export async function getUserDetails(username) {
+export async function getUserDetails(id) {
   try {
-    const res = await axios.get(`${API_BASE}/api/user/getuser/${username}`);
+    const res = await axios.get(`${API_BASE}/api/user/getuser/${id}`);
     return res.data;
   } catch (err) {
     throw err.response?.data || err.message;
