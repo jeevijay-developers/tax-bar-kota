@@ -2,8 +2,10 @@
 import { updateUser } from "@/server/api";
 import { getUserDetails } from "@/server/api";
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const ProfileUpdation = () => {
+  // Dummy data as initial state
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -48,15 +50,59 @@ const ProfileUpdation = () => {
     },
   });
 
-  const id = localStorage.getItem("tba-token");
-
   useEffect(() => {
-    // console.log("🚀 ~ useEffect ~ id:", id)
+    const id = localStorage.getItem("tba-token");
+    console.log("🚀 ~ useEffect ~ id:", id);
 
     if (id) {
       getUserDetails(id)
         .then((data) => {
           const user = data.user;
+          console.log(user);
+
+          setFormData({
+            username: user.username,
+            password: "", // Password shouldn't be pre-filled for security
+            name: {
+              firstname: user.name.firstname,
+              middlename: user.name.middlename,
+              lastname: user.name.lastname,
+            },
+            profession: user.profession,
+            profilePhoto: null,
+            email: {
+              primary: user.email.primary,
+              alternate: user.email.alternate,
+            },
+            phone: {
+              primary: user.phone.primary,
+              alternate: user.phone.alternate,
+            },
+            bloodGroup: user.bloodGroup.toLowerCase(),
+            maritalInfo: {
+              status: user.maritalInfo.status,
+              spouseName: user.maritalInfo.spouseName,
+              date: user.maritalInfo.date,
+            },
+            gender: user.gender,
+            DOB: user.DOB,
+            address: {
+              residential: {
+                addressLine: user.address.residential.addressLine,
+                pincode: user.address.residential.pincode,
+                city: user.address.residential.city,
+                state: user.address.residential.state,
+                phone: user.address.residential.phone,
+              },
+              office: {
+                addressLine: user.address.office.addressLine,
+                pincode: user.address.office.pincode,
+                city: user.address.office.city,
+                state: user.address.office.state,
+                phone: user.address.office.phone,
+              },
+            },
+          });
           // console.log("user details", user)
           setFormData(user);
           setProfilePhotoPreview(user.image);
@@ -132,16 +178,18 @@ const ProfileUpdation = () => {
     }
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
+    // Here you can add logic to save the updated profile
+    console.log("Profile Updated:", formData);
     try {
-      // Here you can add logic to save the updated profile
-      updateUser(id, formData);
-      console.log("Profile Updated:", formData);
+      const res = await updateUser(formData.username, formData);
+      if (res) {
+        toast.success("Profile updated successfully!");
+      }
       setIsEditing(false);
-      alert("Profile updated successfully!");
-    } catch (err) {
-      console.log("errorin updating user", err);
-      alert("error in updating user");
+    } catch (error) {
+      console.error("Error updating profile:", error);
+      toast.error("Failed to update profile. Please try again.");
     }
   };
 
