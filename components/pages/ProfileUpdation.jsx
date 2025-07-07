@@ -1,11 +1,9 @@
 "use client";
-import { updateUser } from '@/server/api';
+import { updateUser } from "@/server/api";
 import { getUserDetails } from "@/server/api";
 import React, { useEffect, useState } from "react";
 
 const ProfileUpdation = () => {
-  
-  // Dummy data as initial state
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -15,7 +13,7 @@ const ProfileUpdation = () => {
       lastname: "",
     },
     profession: "",
-    profilePhoto: null, // For storing uploaded photo
+    profilePhoto: null,
     email: {
       primary: "",
       alternate: "",
@@ -49,58 +47,18 @@ const ProfileUpdation = () => {
       },
     },
   });
-  
+
+  const id = localStorage.getItem("tba-token");
+
   useEffect(() => {
-    const id = localStorage.getItem("tba-token");
-    console.log("🚀 ~ useEffect ~ id:", id)
-    
+    // console.log("🚀 ~ useEffect ~ id:", id)
+
     if (id) {
       getUserDetails(id)
         .then((data) => {
           const user = data.user;
-          setFormData({
-            username: user.username,
-            password: "", // Password shouldn't be pre-filled for security
-            name: {
-              firstname: user.name.firstname,
-              middlename: user.name.middlename,
-              lastname: user.name.lastname,
-            },
-            profession: user.profession,
-            profilePhoto: null,
-            email: {
-              primary: user.email.primary,
-              alternate: user.email.alternate,
-            },
-            phone: {
-              primary: user.phone.primary,
-              alternate: user.phone.alternate,
-            },
-            bloodGroup: user.bloodGroup.toLowerCase(),
-            maritalInfo: {
-              status: user.maritalInfo.status,
-              spouseName: user.maritalInfo.spouseName,
-              date: user.maritalInfo.date,
-            },
-            gender: user.gender,
-            DOB: user.DOB,
-            address: {
-              residential: {
-                addressLine: user.address.residential.addressLine,
-                pincode: user.address.residential.pincode,
-                city: user.address.residential.city,
-                state: user.address.residential.state,
-                phone: user.address.residential.phone,
-              },
-              office: {
-                addressLine: user.address.office.addressLine,
-                pincode: user.address.office.pincode,
-                city: user.address.office.city,
-                state: user.address.office.state,
-                phone: user.address.office.phone,
-              },
-            },
-          });
+          // console.log("user details", user)
+          setFormData(user);
           setProfilePhotoPreview(user.image);
         })
         .catch((e) => console.log(e));
@@ -175,11 +133,16 @@ const ProfileUpdation = () => {
   };
 
   const handleSave = () => {
-    // Here you can add logic to save the updated profile
-    console.log("Profile Updated:", formData);
-    updateUser(formData.username, formData)
-    setIsEditing(false);
-    alert("Profile updated successfully!");
+    try {
+      // Here you can add logic to save the updated profile
+      updateUser(id, formData);
+      console.log("Profile Updated:", formData);
+      setIsEditing(false);
+      alert("Profile updated successfully!");
+    } catch (err) {
+      console.log("errorin updating user", err);
+      alert("error in updating user");
+    }
   };
 
   const handleCancel = () => {
@@ -196,7 +159,9 @@ const ProfileUpdation = () => {
               <div className="profile-card">
                 <div className="profile-header mt-4">
                   <h1 className="profile-title">Profile Information</h1>
-                  <p className="profile-subtitle">Manage your personal information</p>
+                  <p className="profile-subtitle">
+                    Manage your personal information
+                  </p>
 
                   {!isEditing ? (
                     <button
@@ -693,7 +658,7 @@ const ProfileUpdation = () => {
           </div>
         </div>
       </div>
-            <style jsx>{`
+      <style jsx>{`
         .profile-container {
           background: #E0E0E0,
           min-height: 100vh;
