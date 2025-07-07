@@ -1,10 +1,8 @@
-import axios from "axios";
-
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+import apiCLient from "./config";
 
 export async function registerUser(data) {
   try {
-    const res = await axios.post(`${API_BASE}/api/auth/register-user`, data);
+    const res = await apiCLient.post(`/api/auth/register-user`, data);
     return res.data;
   } catch (err) {
     throw err.response?.data || err.message;
@@ -13,7 +11,7 @@ export async function registerUser(data) {
 
 export async function loginUser(data) {
   try {
-    const res = await axios.post(`${API_BASE}/api/auth/login-user`, data);
+    const res = await apiCLient.post(`/api/auth/login-user`, data);
     return res.data;
   } catch (err) {
     throw err.response?.data || err.message;
@@ -22,7 +20,7 @@ export async function loginUser(data) {
 
 export async function uploadGalleryImages(formData) {
   try {
-    const res = await axios.post(`${API_BASE}/api/images/gallery`, formData, {
+    const res = await apiCLient.post(`/api/images/gallery`, formData, {
       headers: { "Content-Type": "multipart/form-data" },
     });
     return res.data;
@@ -33,7 +31,7 @@ export async function uploadGalleryImages(formData) {
 
 export async function uploadEventGalleryImages(formData) {
   try {
-    const res = await axios.post(`${API_BASE}/api/images/event-gallery`, formData, {
+    const res = await apiCLient.post(`/api/images/event-gallery`, formData, {
       headers: { "Content-Type": "multipart/form-data" },
     });
     return res.data;
@@ -44,7 +42,7 @@ export async function uploadEventGalleryImages(formData) {
 
 export async function getGallery() {
   try {
-    const res = await axios.get(`${API_BASE}/api/v1/get-gallery`);
+    const res = await apiCLient.get(`/api/v1/get-gallery`);
     return res.data;
   } catch (err) {
     throw err.response?.data || err.message;
@@ -53,7 +51,7 @@ export async function getGallery() {
 
 export async function getEventGallery() {
   try {
-    const res = await axios.get(`${API_BASE}/api/images/get-event-gallery`);
+    const res = await apiCLient.get(`/api/images/get-event-gallery`);
     return res.data;
   } catch (err) {
     throw err.response?.data || err.message;
