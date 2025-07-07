@@ -122,7 +122,10 @@ const ProfileUpdation = () => {
       },
     }));
   };
-
+  useEffect(() => {
+    console.log("formData changed: ", formData);
+  }, [formData]);
+  
   // Handle photo upload
   const handlePhotoUpload = async (e) => {
     const file = e.target.files[0];
@@ -140,13 +143,14 @@ const ProfileUpdation = () => {
 
       try {
         const res = await uploadProfileImage(id, formDataToUpload);
-        console.log("image", res)
-        if (res && res.imageUrl) {
+        console.log("image", res?.imageUrl);
+        if (res) {
           // update formData with the new URL from server
           setFormData((prevData) => ({
             ...prevData,
             profilePhoto: res.imageUrl,
           }));
+          // console.log("form data after image update",formData)
           toast.success("Profile photo updated!");
         }
       } catch (error) {

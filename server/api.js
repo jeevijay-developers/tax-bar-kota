@@ -51,7 +51,7 @@ export async function getGallery() {
 
 export async function getEventGallery() {
   try {
-    const res = await apiCLient.get(`/api/images/get-event-gallery`);
+    const res = await apiCLient.get(`/api/v1/get-event-gallery`);
     return res.data;
   } catch (err) {
     throw err.response?.data || err.message;
@@ -88,3 +88,4 @@ export async function getUserDetails(id) {
     throw err.response?.data || err.message;
   }
 }
+

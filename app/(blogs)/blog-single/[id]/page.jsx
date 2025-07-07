@@ -12,13 +12,13 @@ export const metadata = {
 export default async function page({ params }) {
   const id = await params.id;
   const blog = eventDesc[id];
-
+  console.log("id-> ", id);
   return (
     <>
       <main>
         <Header1 />
-        <Hero1 blog={blog} />
-        <BlogSingle blog={blog} />
+        {/* <Hero1 blog={blog} /> */}
+        <BlogSingle eventId={id} />
         <FooterOne />
       </main>
     </>

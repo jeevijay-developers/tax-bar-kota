@@ -9,8 +9,8 @@ export default function Hero1({ blog }) {
         <Image
           width={1800}
           height={500}
-          // src={blog.blog.bImage1}
-          src={"/img/tax-bar-kota/event-gallery/bg.jpg"}
+          src={blog.blog.bImage1}
+          // src={"/img/tax-bar-kota/event-gallery/bg.jpg"}
           className=""
           alt="image"
         />

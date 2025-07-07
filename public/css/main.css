@@ -1171,7 +1171,10 @@ button:focus {
   border-color: transparent;
   color: white !important;
 }
-
+.button.-outline-white{
+  background-color: rgba(0, 0, 0, 0.301) !important;
+  color: white !important;
+}
 .button.-outline-white:hover {
   background-color: white !important;
   color: var(--color-dark-1) !important;
