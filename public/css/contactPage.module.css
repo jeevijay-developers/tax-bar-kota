@@ -1,0 +1,17 @@
+.contactPageContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .contactPageContainer {
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+  }
+  .contactPageContainer > * {
+    width: 100% !important;
+    max-width: 100% !important;
+    position: static !important;
+  }
+}

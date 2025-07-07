@@ -3,12 +3,14 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { loginUser } from "@/server/api";
+import { useRouter } from "next/navigation";
 
 export default function Login() {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
   });
+  const router = useRouter()
   const [apiError, setApiError] = useState("");
   const [apiSuccess, setApiSuccess] = useState("");
 
@@ -20,11 +22,16 @@ export default function Login() {
     e.preventDefault();
     setApiError("");
     setApiSuccess("");
+    console.log("hi")
     try {
       const res = await loginUser(formData);
       setApiSuccess("Login successful!");
-      // Optionally, redirect or store token here
+      console.log('res', res);
+      console.log("res user", res?.user?._id);
+      localStorage.setItem("tba-token", res?.user?._id);
+      router.push('/')
     } catch (err) {
+      console.log("login err", err)
       setApiError(err.message || "Login failed");
     }
   };

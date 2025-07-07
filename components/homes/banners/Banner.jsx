@@ -55,8 +55,7 @@ export default function Banner() {
                   from the fields of Taxation conceived the idea of establishing a
                   body for tax practitioners. The idea of the Tax Bar Association,
                   Kota was given life under the able Presidency of Shri M. H.
-                  Ansari in the year 1952. Founder members of the Association are:
-                  -
+                  Ansari in the year 1952. 
                 </p>
 
                 <div className="mt-30 md:mt-20">

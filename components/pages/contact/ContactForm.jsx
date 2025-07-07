@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 
 export default function ContactForm() {
@@ -40,10 +39,12 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="layout-pt-lg layout-pb-lg">
+    <section className="layout-pt-sm  layout-pb-lg">
       <div className="container">
         <div className="row justify-center">
-          <div className="col-lg-8">
+          <div
+            className={`col-lg-8 mobileMargin`}
+          >
             <h2 className="text-30 fw-700 text-center mb-30">
               Leave us your info
             </h2>
@@ -110,6 +111,18 @@ export default function ContactForm() {
           </div>
         </div>
       </div>
+      <style>
+        {`
+        .mobileMargin {
+  margin-top: 0;
+}
+
+@media (max-width: 768px) {
+  .mobileMargin {
+    margin-top: 10rem;
+  }
+}        `}
+      </style>
     </section>
   );
 }

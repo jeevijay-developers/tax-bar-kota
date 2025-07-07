@@ -17,8 +17,8 @@ const currencies = [
     location: "/about",
   },
   {
-    title: "Club Gallary",
-    location: "/clubGallary",
+    title: "Club Gallery",
+    location: "/clubGallery",
   },
   {
     title: "Event Gallary",

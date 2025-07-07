@@ -127,7 +127,10 @@
 .nav-link.active .nav-link-underline {
     width: 100%;
 }
-
+.header-container .profileWrapper {
+    display: flex !important;
+    gap: 15px;
+}
 .profile-section {
     display: flex;
     align-items: center;
@@ -226,11 +229,6 @@
         -webkit-backdrop-filter: blur(8px);
     }
 
-    .logo-image {
-        width: 70px;
-        height: 44px;
-    }
-
     .profile-btn {
         width: 40px;
         height: 40px;
@@ -318,6 +316,10 @@ body {
           .mobile-menu-btn {
             position: static;
           }
+          .header-container .profileWrapper {
+            display: none !important;
+          }
+        
           .profile-section {
             position: static;
             margin-left: auto;
