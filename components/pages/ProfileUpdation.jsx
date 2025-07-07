@@ -1,5 +1,5 @@
 "use client";
-import { updateUser } from "@/server/api";
+import { updateUser, uploadProfileImage } from "@/server/api";
 import { getUserDetails } from "@/server/api";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
@@ -7,6 +7,8 @@ import { toast } from "react-toastify";
 const ProfileUpdation = () => {
 
   let id = localStorage.getItem("tba-token");
+  const [imageUploading, setImageUploading] = useState(false);
+
   // Dummy data as initial state
   const [formData, setFormData] = useState({
     username: "",
@@ -122,20 +124,39 @@ const ProfileUpdation = () => {
   };
 
   // Handle photo upload
-  const handlePhotoUpload = (e) => {
+  const handlePhotoUpload = async (e) => {
     const file = e.target.files[0];
     if (file) {
+      // preview the image locally
       const reader = new FileReader();
       reader.onload = () => {
         setProfilePhotoPreview(reader.result);
-        setFormData((prevData) => ({
-          ...prevData,
-          profilePhoto: file,
-        }));
       };
       reader.readAsDataURL(file);
+
+      // upload to server to get final URL
+      const formDataToUpload = new FormData();
+      formDataToUpload.append("image", file);
+
+      try {
+        const res = await uploadProfileImage(id, formDataToUpload);
+        console.log("image", res)
+        if (res && res.imageUrl) {
+          // update formData with the new URL from server
+          setFormData((prevData) => ({
+            ...prevData,
+            profilePhoto: res.imageUrl,
+          }));
+          toast.success("Profile photo updated!");
+        }
+      } catch (error) {
+        console.error("Image upload error: ", error);
+        toast.error("Failed to upload image");
+      }
     }
   };
+  
+  
 
   const handleSave = async () => {
     // Here you can add logic to save the updated profile
@@ -153,6 +174,7 @@ const ProfileUpdation = () => {
       toast.error("Failed to update profile. Please try again.");
     }
   };
+
 
   const handleCancel = () => {
     setIsEditing(false);

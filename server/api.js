@@ -58,8 +58,20 @@ export async function getEventGallery() {
   }
 }
 
+export async function uploadProfileImage(id, formData) {
+  try {
+    const res = await apiCLient.post(`/api/auth/upload-image/${id}`, formData, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+    return res.data;
+  } catch (err) {
+    throw err.response?.data || err.message;
+  }
+}
+
+
 export async function updateUser(id, user) {
-  console.log("user ->",user)
+  // console.log("user ->",user)
   try {
     const res = await apiCLient.put(`/api/auth/users/${id}`, {user});
     return res.data;
