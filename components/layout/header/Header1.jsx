@@ -35,7 +35,6 @@ export default function Header1() {
   const checkToken = () => {
     const user = localStorage.getItem("tba-token");
     if (user) {
-      console.log("user", user);
       router.push("profile-update");
     } else {
       router.push("/auth/login");

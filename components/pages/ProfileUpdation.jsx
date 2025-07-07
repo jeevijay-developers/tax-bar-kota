@@ -52,9 +52,11 @@ const ProfileUpdation = () => {
   });
   
   useEffect(() => {
-    const username = localStorage.getItem("tba-token");
-    if (username) {
-      getUserDetails(username)
+    const id = localStorage.getItem("tba-token");
+    console.log("🚀 ~ useEffect ~ id:", id)
+    
+    if (id) {
+      getUserDetails(id)
         .then((data) => {
           const user = data.user;
           setFormData({

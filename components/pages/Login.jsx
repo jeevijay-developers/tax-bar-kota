@@ -22,13 +22,16 @@ export default function Login() {
     e.preventDefault();
     setApiError("");
     setApiSuccess("");
+    console.log("hi")
     try {
       const res = await loginUser(formData);
       setApiSuccess("Login successful!");
       console.log('res', res);
-      localStorage.setItem("tba-token",res?.user?.username)
+      console.log("res user", res?.user?._id);
+      localStorage.setItem("tba-token", res?.user?._id);
       router.push('/')
     } catch (err) {
+      console.log("login err", err)
       setApiError(err.message || "Login failed");
     }
   };
