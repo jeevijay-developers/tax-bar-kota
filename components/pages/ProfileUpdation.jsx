@@ -2,6 +2,7 @@
 import { updateUser } from '@/server/api';
 import { getUserDetails } from "@/server/api";
 import React, { useEffect, useState } from "react";
+import { toast } from 'react-toastify';
 
 const ProfileUpdation = () => {
   
@@ -172,12 +173,19 @@ const ProfileUpdation = () => {
     }
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     // Here you can add logic to save the updated profile
     console.log("Profile Updated:", formData);
-    updateUser(formData.username, formData)
-    setIsEditing(false);
-    alert("Profile updated successfully!");
+    try {
+      const res = await updateUser(formData.username, formData);
+      if (res) {
+        toast.success("Profile updated successfully!");
+      }
+      setIsEditing(false);
+    } catch (error) {
+      console.error("Error updating profile:", error);
+      toast.error("Failed to update profile. Please try again.");
+    }    
   };
 
   const handleCancel = () => {
