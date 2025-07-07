@@ -12,9 +12,9 @@ const Page = () => {
   return (
     <>
       <main>
-        <Header1 />
+        {/* <Header1 /> */}
         <Register />
-        <FooterOne />
+        {/* <FooterOne /> */}
       </main>
     </>
   );

@@ -140,7 +140,7 @@ const ProfileUpdation = () => {
   const handleSave = async () => {
     // Here you can add logic to save the updated profile
     const user  = {...formData}
-    console.log("Profile :", user);
+    // console.log("Profile :", user);
     try {
       const res = await updateUser(id, user);
       if (res) {

@@ -12,9 +12,9 @@ export default function page() {
   return (
     <>
       <main>
-        <Header1 />
+        {/* <Header1 /> */}
         <Login />
-        <FooterOne />
+        {/* <FooterOne /> */}
       </main>
     </>
   );

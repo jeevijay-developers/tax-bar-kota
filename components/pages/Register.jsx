@@ -192,7 +192,9 @@ const Register = () => {
                     onChange={(e) => setConPass(e.target.value)}
                   />
                   {confirmPasswordError && (
-                    <div className="text-danger mt-2">{confirmPasswordError}</div>
+                    <div className="text-danger mt-2">
+                      {confirmPasswordError}
+                    </div>
                   )}
                 </div>
               </div>
@@ -255,13 +257,32 @@ const Register = () => {
                   <label htmlFor="bloodGroup" className="form-label">
                     Enter Blood Group
                   </label>
-                  <input
+
+                  <select
+                    id="bloodGroup"
+                    className="form-control border-1"
+                    onChange={(e) => handleChange(e, "bloodGroup")}
+                    defaultValue=""
+                  >
+                    <option value="" disabled>
+                      Select blood group
+                    </option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                  </select>
+                  {/* <input
                     type="text"
                     id="bloodGroup"
                     className="form-control border-1"
                     placeholder="blood group"
                     onChange={(e) => handleChange(e, "bloodGroup")}
-                  />
+                  /> */}
                 </div>
               </div>
               {/* </div> */}
@@ -344,10 +365,17 @@ const Register = () => {
                         value="married"
                         checked={formData.maritalInfo.status === "married"}
                         onChange={(e) =>
-                          handleMobileEmailMaritialChange(e, "maritalInfo", "status")
+                          handleMobileEmailMaritialChange(
+                            e,
+                            "maritalInfo",
+                            "status"
+                          )
                         }
                       />
-                      <label className="form-check-label" htmlFor="radioMarried">
+                      <label
+                        className="form-check-label"
+                        htmlFor="radioMarried"
+                      >
                         Married
                       </label>
                     </div>
@@ -361,10 +389,17 @@ const Register = () => {
                         value="unmarried"
                         checked={formData.maritalInfo.status === "unmarried"}
                         onChange={(e) =>
-                          handleMobileEmailMaritialChange(e, "maritalInfo", "status")
+                          handleMobileEmailMaritialChange(
+                            e,
+                            "maritalInfo",
+                            "status"
+                          )
                         }
                       />
-                      <label className="form-check-label" htmlFor="radioUnmarried">
+                      <label
+                        className="form-check-label"
+                        htmlFor="radioUnmarried"
+                      >
                         Unmarried
                       </label>
                     </div>
@@ -396,7 +431,11 @@ const Register = () => {
                           name="maritalStatus"
                           id="radioMarried"
                           onChange={(e) =>
-                            handleMobileEmailMaritialChange(e, "maritalInfo", "date")
+                            handleMobileEmailMaritialChange(
+                              e,
+                              "maritalInfo",
+                              "date"
+                            )
                           }
                         />
                       </div>
@@ -439,7 +478,10 @@ const Register = () => {
                         checked={formData.gender === "male"}
                         onChange={(e) => handleChange(e, "gender")}
                       />
-                      <label className="form-check-label" htmlFor="radiogenderMale">
+                      <label
+                        className="form-check-label"
+                        htmlFor="radiogenderMale"
+                      >
                         Male
                       </label>
                     </div>
@@ -454,7 +496,10 @@ const Register = () => {
                         checked={formData.gender === "female"}
                         onChange={(e) => handleChange(e, "gender")}
                       />
-                      <label className="form-check-label" htmlFor="radiogenderFemale">
+                      <label
+                        className="form-check-label"
+                        htmlFor="radiogenderFemale"
+                      >
                         Female
                       </label>
                     </div>
@@ -578,7 +623,9 @@ const Register = () => {
                         id="res-pincode"
                         className="form-control border-1"
                         placeholder="pincode"
-                        onChange={(e) => handleAddressChange(e, "office", "pincode")}
+                        onChange={(e) =>
+                          handleAddressChange(e, "office", "pincode")
+                        }
                       />
                     </div>
                     <div className="mb-3">
@@ -590,7 +637,9 @@ const Register = () => {
                         id="res-state"
                         className="form-control border-1"
                         placeholder="state"
-                        onChange={(e) => handleAddressChange(e, "office", "state")}
+                        onChange={(e) =>
+                          handleAddressChange(e, "office", "state")
+                        }
                       />
                     </div>
                     <div className="mb-3">
@@ -602,7 +651,9 @@ const Register = () => {
                         id="res-city"
                         className="form-control border-1"
                         placeholder="city"
-                        onChange={(e) => handleAddressChange(e, "office", "city")}
+                        onChange={(e) =>
+                          handleAddressChange(e, "office", "city")
+                        }
                       />
                     </div>
                     <div className="mb-3">
@@ -615,14 +666,18 @@ const Register = () => {
                         id="res-phone"
                         className="form-control border-1"
                         placeholder="phone"
-                        onChange={(e) => handleAddressChange(e, "office", "phone")}
+                        onChange={(e) =>
+                          handleAddressChange(e, "office", "phone")
+                        }
                       />
                     </div>
                   </div>
                 </div>
               </div>
               {apiError && <div className="text-danger mt-20">{apiError}</div>}
-              {apiSuccess && <div className="text-success mt-20">{apiSuccess}</div>}
+              {apiSuccess && (
+                <div className="text-success mt-20">{apiSuccess}</div>
+              )}
               <button
                 type="submit"
                 className="button -md -dark-1 bg-accent-1 text-white col-12 mt-30"
