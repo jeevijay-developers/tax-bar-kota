@@ -58,9 +58,10 @@ export async function getEventGallery() {
   }
 }
 
-export async function updateUser(id, data) {
+export async function updateUser(id, user) {
+  console.log("user ->",user)
   try {
-    const res = await apiCLient.put(`/api/users/${id}`, data);
+    const res = await apiCLient.put(`/api/auth/users/${id}`, {user});
     return res.data;
   } catch (err) {
     throw err.response?.data || err.message;
