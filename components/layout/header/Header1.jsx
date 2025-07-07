@@ -32,8 +32,8 @@ export default function Header1() {
     }
   };
 
+  const user = localStorage.getItem("tba-token");
   const checkToken = () => {
-    const user = localStorage.getItem("tba-token");
     if (user) {
       router.push("profile-update");
     } else {
@@ -41,10 +41,9 @@ export default function Header1() {
     }
   };
   const handleLogout = () => {
-    const user = localStorage.getItem("tba-token");
     if (user) {
       localStorage.removeItem("tba-token");
-      router.push("/");
+      router.push("/auth/login");
       toast.success("logout successfully");
     }
   };
@@ -120,13 +119,13 @@ export default function Header1() {
               </button>
             </div>
 
-            <button
+           {user && ( <button
               onClick={() => handleLogout()}
               className="profile-btn"
               aria-label="Logout"
             >
               <LogOut size={20} />
-            </button>
+            </button>)}
           </div>
         </div>
       </header>

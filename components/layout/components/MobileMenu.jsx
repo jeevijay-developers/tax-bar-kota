@@ -15,8 +15,10 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
   const [activeSub, setActiveSub] = useState("");
   const pathname = usePathname();
   const router = useRouter();
+
+
+  const user = localStorage.getItem("tba-token");
   const checkToken = () => {
-    const user = localStorage.getItem("tba-token");
     if (user) {
       router.push("profile-update");
     } else {
@@ -24,7 +26,6 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
     }
   };
   const handleLogout = () => {
-    const user = localStorage.getItem("tba-token");
     if (user) {
       localStorage.removeItem("tba-token");
       router.push("/");
@@ -58,11 +59,15 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
       title: "Contact Us",
       location: "/contact",
     },
-    {
-      title: "Logout",
-      location: "/auth/logout",
-      onClick: handleLogout,
-    },
+    ...(user
+      ? [
+          {
+            title: "Logout",
+            location: "/auth/logout",
+            onClick: handleLogout,
+          },
+        ]
+      : []),
   ];
 
   return (
