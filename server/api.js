@@ -60,7 +60,7 @@ export async function getEventGallery() {
 
 export async function updateUser(id, data) {
   try {
-    const res = await axios.put(`${API_BASE}/api/users/${id}`, data);
+    const res = await apiCLient.put(`/api/users/${id}`, data);
     return res.data;
   } catch (err) {
     throw err.response?.data || err.message;
@@ -69,7 +69,7 @@ export async function updateUser(id, data) {
 
 export async function getUserDetails(id) {
   try {
-    const res = await axios.get(`${API_BASE}/api/user/getuser/${id}`);
+    const res = await apiCLient.get(`/api/user/getuser/${id}`);
     return res.data;
   } catch (err) {
     throw err.response?.data || err.message;

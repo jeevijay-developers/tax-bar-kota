@@ -1,10 +1,9 @@
 "use client";
-import { updateUser } from '@/server/api';
+import { updateUser } from "@/server/api";
 import { getUserDetails } from "@/server/api";
 import React, { useEffect, useState } from "react";
 
 const ProfileUpdation = () => {
-  
   // Dummy data as initial state
   const [formData, setFormData] = useState({
     username: "",
@@ -49,15 +48,17 @@ const ProfileUpdation = () => {
       },
     },
   });
-  
+
   useEffect(() => {
     const id = localStorage.getItem("tba-token");
-    console.log("🚀 ~ useEffect ~ id:", id)
-    
+    console.log("🚀 ~ useEffect ~ id:", id);
+
     if (id) {
       getUserDetails(id)
         .then((data) => {
           const user = data.user;
+          console.log(user);
+
           setFormData({
             username: user.username,
             password: "", // Password shouldn't be pre-filled for security
@@ -177,7 +178,7 @@ const ProfileUpdation = () => {
   const handleSave = () => {
     // Here you can add logic to save the updated profile
     console.log("Profile Updated:", formData);
-    updateUser(formData.username, formData)
+    updateUser(formData.username, formData);
     setIsEditing(false);
     alert("Profile updated successfully!");
   };
@@ -196,7 +197,9 @@ const ProfileUpdation = () => {
               <div className="profile-card">
                 <div className="profile-header mt-4">
                   <h1 className="profile-title">Profile Information</h1>
-                  <p className="profile-subtitle">Manage your personal information</p>
+                  <p className="profile-subtitle">
+                    Manage your personal information
+                  </p>
 
                   {!isEditing ? (
                     <button
@@ -693,7 +696,7 @@ const ProfileUpdation = () => {
           </div>
         </div>
       </div>
-            <style jsx>{`
+      <style jsx>{`
         .profile-container {
           background: #E0E0E0,
           min-height: 100vh;
