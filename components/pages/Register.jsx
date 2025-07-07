@@ -160,6 +160,7 @@ const Register = () => {
                     Enter Username
                   </label>
                   <input
+                    required
                     type="text"
                     id="username"
                     className="form-control border-1"
@@ -173,6 +174,7 @@ const Register = () => {
                     Enter Password
                   </label>
                   <input
+                    required
                     type="password"
                     id="password"
                     className="form-control my-form-control border-1"
@@ -185,6 +187,7 @@ const Register = () => {
                     Confirm Password
                   </label>
                   <input
+                    required
                     type="password"
                     id="confirm-password"
                     className="form-control my-form-control border-1"
@@ -205,6 +208,7 @@ const Register = () => {
                     Enter Firstname
                   </label>
                   <input
+                    required
                     type="text"
                     id="firstname"
                     className="form-control border-1"
@@ -218,6 +222,7 @@ const Register = () => {
                     Enter middlename
                   </label>
                   <input
+                    required
                     type="text"
                     id="middlename"
                     className="form-control my-form-control border-1"
@@ -230,6 +235,7 @@ const Register = () => {
                     Enter Lastname
                   </label>
                   <input
+                    required
                     type="text"
                     id="lastname"
                     className="form-control my-form-control border-1"
@@ -246,6 +252,7 @@ const Register = () => {
                     Enter Profession
                   </label>
                   <input
+                    required
                     type="text"
                     id="profession"
                     className="form-control border-1"
@@ -277,6 +284,7 @@ const Register = () => {
                     <option value="O-">O-</option>
                   </select>
                   {/* <input
+                    required
                     type="text"
                     id="bloodGroup"
                     className="form-control border-1"
@@ -293,6 +301,7 @@ const Register = () => {
                     Enter Primary Email
                   </label>
                   <input
+                    required
                     type="email"
                     id="primary-email"
                     className="form-control border-1"
@@ -308,6 +317,7 @@ const Register = () => {
                     Enter Primary Mobile
                   </label>
                   <input
+                    required
                     type="text"
                     maxLength={10}
                     id="primary-mobile"
@@ -323,6 +333,7 @@ const Register = () => {
                     Enter Alternate Email
                   </label>
                   <input
+                    required
                     type="email"
                     id="alternate-email"
                     className="form-control border-1"
@@ -338,6 +349,7 @@ const Register = () => {
                     Enter Alternate Mobile
                   </label>
                   <input
+                    required
                     type="text"
                     maxLength={10}
                     id="alternate-mobile"
@@ -358,7 +370,9 @@ const Register = () => {
                   <div className="d-flex flex-row gap-10">
                     <div className="form-check d-flex flex-row gap-3 me-5">
                       <input
-                        className="form-check-input me-2"
+                        required
+                        className="form-check-input
+                          required me-2"
                         type="radio"
                         name="maritalStatus"
                         id="radioMarried"
@@ -382,7 +396,9 @@ const Register = () => {
 
                     <div className="form-check d-flex flex-row gap-3">
                       <input
-                        className="form-check-input me-2"
+                        required
+                        className="form-check-input
+                          required me-2"
                         type="radio"
                         name="maritalStatus"
                         id="radioUnmarried"
@@ -426,7 +442,9 @@ const Register = () => {
                           Date of Marriage
                         </label>
                         <input
-                          className="form-check-input form-control me-2"
+                          required
+                          className="form-check-input
+                            required form-control me-2"
                           type="date"
                           name="maritalStatus"
                           id="radioMarried"
@@ -445,6 +463,7 @@ const Register = () => {
                         Spouse Name
                       </label>
                       <input
+                        required
                         type="text"
                         id="spouse-name"
                         className="form-control border-1"
@@ -470,7 +489,9 @@ const Register = () => {
                   <div className="d-flex flex-row gap-10">
                     <div className="form-check d-flex flex-row gap-3 me-5">
                       <input
-                        className="form-check-input me-2"
+                        required
+                        className="form-check-input
+                          required me-2"
                         type="radio"
                         name="gender"
                         id="radiogenderMale"
@@ -488,7 +509,9 @@ const Register = () => {
 
                     <div className="form-check d-flex flex-row gap-3">
                       <input
-                        className="form-check-input me-2"
+                        required
+                        className="form-check-input
+                          required me-2"
                         type="radio"
                         name="gender"
                         id="radiogenderFemale"
@@ -510,6 +533,7 @@ const Register = () => {
                     Date of Birth
                   </label>
                   <input
+                    required
                     type="date"
                     id="DOB"
                     className="form-control border-1"
@@ -542,6 +566,7 @@ const Register = () => {
                         Pincode
                       </label>
                       <input
+                        required
                         type="number"
                         id="res-pincode"
                         className="form-control border-1"
@@ -556,6 +581,7 @@ const Register = () => {
                         State
                       </label>
                       <input
+                        required
                         type="text"
                         id="res-state"
                         className="form-control border-1"
@@ -570,6 +596,7 @@ const Register = () => {
                         City
                       </label>
                       <input
+                        required
                         type="text"
                         id="res-city"
                         className="form-control border-1"
@@ -584,6 +611,7 @@ const Register = () => {
                         Phone
                       </label>
                       <input
+                        required
                         type="text"
                         maxLength={10}
                         id="res-phone"
@@ -619,6 +647,7 @@ const Register = () => {
                         Pincode
                       </label>
                       <input
+                        required
                         type="number"
                         id="res-pincode"
                         className="form-control border-1"
@@ -633,6 +662,7 @@ const Register = () => {
                         State
                       </label>
                       <input
+                        required
                         type="text"
                         id="res-state"
                         className="form-control border-1"
@@ -647,6 +677,7 @@ const Register = () => {
                         City
                       </label>
                       <input
+                        required
                         type="text"
                         id="res-city"
                         className="form-control border-1"
@@ -661,6 +692,7 @@ const Register = () => {
                         Phone
                       </label>
                       <input
+                        required
                         type="text"
                         maxLength={10}
                         id="res-phone"

@@ -112,14 +112,14 @@ export default function AboutSection() {
                   ))}
                 </div>
 
-                <div className="d-flex flex-wrap gap-20">
+                {/* <div className="d-flex flex-wrap gap-20">
                   <button className="button -md -dark-1 bg-accent-1 text-white me-15 m-2">
                     Join TBA Kota
                   </button>
                   <button className="button -md -outline-accent-1 text-accent-1 m-2">
                     Visit Website
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -327,9 +327,9 @@ export default function AboutSection() {
                     Visit www.tbakota.com for articles, case summaries, tax updates, 
                     and government notifications.
                   </p>
-                  <button className="button -sm -accent-1 bg-accent-1 text-white">
+                  {/* <button className="button -sm -accent-1 bg-accent-1 text-white">
                     Visit Website
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>
@@ -376,7 +376,7 @@ export default function AboutSection() {
       </section>
 
       {/* Call to Action */}
-      <section className="layout-pt-lg layout-pb-lg" style={{ backgroundColor: '#f8f9fa' }}>
+      {/* <section className="layout-pt-lg layout-pb-lg" style={{ backgroundColor: '#f8f9fa' }}>
         <div className="container">
           <div className="row justify-center text-center">
             <div className="col-lg-8">
@@ -400,7 +400,7 @@ export default function AboutSection() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Video Modal */}
       <ModalVideoComponent
