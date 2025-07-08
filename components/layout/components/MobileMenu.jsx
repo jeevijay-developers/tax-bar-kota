@@ -17,10 +17,11 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
   const pathname = usePathname();
   const router = useRouter();
   const [user, setUser] = useState();
+  const [toggle, setToggle] = useState(true);
 
   useEffect(() => {
     setUser(localStorage.getItem("tba-token"));
-  }, []);
+  }, [toggle]);
 
   const checkToken = () => {
     if (user) {
@@ -32,6 +33,7 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
   const handleLogout = () => {
     if (user) {
       localStorage.removeItem("tba-token");
+      setToggle(prev => !prev)
       router.push("/");
       toast.success("logout successfully");
     }

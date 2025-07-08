@@ -23,7 +23,7 @@ export default function Header1() {
   const [addClass, setAddClass] = useState(false);
   const [activeItem, setActiveItem] = useState("");
   const [user, setUser] = useState();
-
+  const [toggle, setToggle] = useState(true);
   // Add a class to the element when scrolled 50px
   const handleScroll = () => {
     if (window.scrollY >= 50) {
@@ -39,7 +39,7 @@ export default function Header1() {
     if (typeof window !== "undefined") {
       setActiveItem(window.location.pathname);
     }
-  }, []);
+  }, [toggle]);
   const checkToken = () => {
     // const user = localStorage.getItem("tba-token");
     if (user) {
@@ -52,6 +52,7 @@ export default function Header1() {
     // const user = localStorage.getItem("tba-token");
     if (user) {
       localStorage.removeItem("tba-token");
+      setToggle(prev => !prev)
       router.push("/auth/login");
       toast.success("logout successfully");
     }
