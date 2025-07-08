@@ -22,6 +22,7 @@ export default function Header1() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [addClass, setAddClass] = useState(false);
   const [activeItem, setActiveItem] = useState("");
+  const [user, setUser] = useState();
 
   // Add a class to the element when scrolled 50px
   const handleScroll = () => {
@@ -32,8 +33,15 @@ export default function Header1() {
     }
   };
 
-  const user = localStorage.getItem("tba-token");
+  // Set active menu item based on current path
+  useEffect(() => {
+    setUser(localStorage.getItem("tba-token"));
+    if (typeof window !== "undefined") {
+      setActiveItem(window.location.pathname);
+    }
+  }, []);
   const checkToken = () => {
+    // const user = localStorage.getItem("tba-token");
     if (user) {
       router.push("profile-update");
     } else {
@@ -41,6 +49,7 @@ export default function Header1() {
     }
   };
   const handleLogout = () => {
+    // const user = localStorage.getItem("tba-token");
     if (user) {
       localStorage.removeItem("tba-token");
       router.push("/auth/login");
@@ -52,13 +61,6 @@ export default function Header1() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
-
-  // Set active menu item based on current path
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setActiveItem(window.location.pathname);
-    }
   }, []);
 
   return (
@@ -119,13 +121,15 @@ export default function Header1() {
               </button>
             </div>
 
-           {user && ( <button
-              onClick={() => handleLogout()}
-              className="profile-btn"
-              aria-label="Logout"
-            >
-              <LogOut size={20} />
-            </button>)}
+            {user && (
+              <button
+                onClick={() => handleLogout()}
+                className="profile-btn"
+                aria-label="Logout"
+              >
+                <LogOut size={20} />
+              </button>
+            )}
           </div>
         </div>
       </header>

@@ -3,7 +3,7 @@
 import { menuData } from "@/data/mobileMenu";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 const socialMediaLinks = [
   { id: 1, class: "icon-facebook", href: "#" },
@@ -11,13 +11,17 @@ const socialMediaLinks = [
   { id: 3, class: "icon-instagram", href: "#" },
   { id: 4, class: "icon-linkedin", href: "#" },
 ];
+
 export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
   const [activeSub, setActiveSub] = useState("");
   const pathname = usePathname();
   const router = useRouter();
+  const [user, setUser] = useState();
 
+  useEffect(() => {
+    setUser(localStorage.getItem("tba-token"));
+  }, []);
 
-  const user = localStorage.getItem("tba-token");
   const checkToken = () => {
     if (user) {
       router.push("profile-update");
@@ -108,7 +112,10 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
                   : pathname.split("/")[1] === elm.location.split("/")[1]);
               if (elm.title === "Logout") {
                 return (
-                  <li key={i} className="menuNav__item -has-submenu js-has-submenu">
+                  <li
+                    key={i}
+                    className="menuNav__item -has-submenu js-has-submenu"
+                  >
                     <a
                       style={{ cursor: "pointer" }}
                       onClick={(e) => {
@@ -123,7 +130,10 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
               }
               if (elm.onClick) {
                 return (
-                  <li key={i} className="menuNav__item -has-submenu js-has-submenu">
+                  <li
+                    key={i}
+                    className="menuNav__item -has-submenu js-has-submenu"
+                  >
                     <a
                       style={{ cursor: "pointer" }}
                       onClick={(e) => {
@@ -137,7 +147,10 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
                 );
               }
               return (
-                <li key={i} className="menuNav__item -has-submenu js-has-submenu">
+                <li
+                  key={i}
+                  className="menuNav__item -has-submenu js-has-submenu"
+                >
                   <Link
                     href={elm.location}
                     className={isActive ? "activeMenu" : ""}
