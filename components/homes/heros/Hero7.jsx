@@ -15,7 +15,7 @@ const slides = [
     id: 1,
     imageSrc: "/img/hero/7/3.png",
     subtitle:
-      "",
+      "Gain access to a wealth of resources including tax publications, journals, and a supportive network of experienced professionals to help navigate complex tax challenges.",
     title: "WELCOME TO TAX BAR KOTA",
   },
   {
@@ -57,89 +57,278 @@ export default function Hero7() {
   }, []);
 
   return (
-    <section className="hero -type-7">
-      {/* <div className="hero__shape"></div> */}
+    <>
+      <style jsx>{`
+        .hero.-type-7 {
+          position: relative;
+          z-index: 20;
+          height: 100vh;
+          min-height: 700px;
+          overflow: hidden;
+        }
 
-      <div className="hero__slider js-section-slider">
-        <Swiper
-          className="w-100"
-          modules={[Navigation, Pagination, Autoplay]}
-          navigation={{
-            prevEl: ".js-sliderHero-prev",
-            nextEl: ".js-sliderHero-next",
-          }}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
-          loop={true}
-          pagination={{ clickable: true }}
-          breakpoints={{
-            500: { slidesPerView: 1 },
-            768: { slidesPerView: 1 },
-            1024: { slidesPerView: 1 },
-            1200: { slidesPerView: 1 },
-          }}
-        >
-          {slides.map((elm, i) => (
-            <SwiperSlide key={elm.id}>
-              <div className="hero__bg image-half-overlay">
-                <Image
-                  width={1920}
-                  height={960}
-                  src={elm.imageSrc}
-                  alt="background"
-                />
-              </div>
+        .hero.-type-7 .hero__bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+        }
 
-              <div className="container">
-                <div className="row justify-center">
-                  <div className="col-lg-8 col-md-10">
-                    <div className="hero__content text-center">
-                      <h1
-                        data-aos="fade-up"
-                        data-aos-delay="300"
-                        className="hero__title text-white"
-                      >
-                        {elm.title.includes(",") ? (
-                          <>
-                            {elm.title.split(",")[0]},
-                            <br className="md:d-none" />
-                            {elm.title.split(",")[1]}
-                          </>
-                        ) : (
-                          elm.title
-                        )}
-                      </h1>
-                      <div
-                        data-aos="fade-up"
-                        data-aos-delay="100"
-                        className="hero__subtitle text-white mb-20 md:mb-10"
-                      >
-                        {elm.subtitle}
+        .hero.-type-7 .hero__bg img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+
+        .hero.-type-7 .hero__shape {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 80px;
+          background-color: #fef7f4;
+          border-radius: 80px 80px 0 0;
+          z-index: 5;
+        }
+
+        .hero.-type-7 .hero__content {
+          position: relative;
+          z-index: 6;
+          padding-top: 180px;
+          padding-bottom: 440px;
+        }
+
+        @media (max-width: 1199px) {
+          .hero.-type-7 .hero__content {
+            padding-top: 200px;
+            padding-bottom: 240px;
+          }
+        }
+       
+
+        @media (max-width: 767px) {
+          .hero.-type-7 .hero__content {
+            padding-top: 120px;
+            padding-bottom: 400px;
+          }
+        }
+
+        .hero.-type-7 .hero__title {
+          font-size: 70px;
+          font-weight: 600;
+          line-height: 1.2;
+        }
+
+        @media (max-width: 991px) {
+          .hero.-type-7 .hero__title {
+            font-size: 60px;
+          }
+        }
+
+        @media (max-width: 767px) {
+          .hero.-type-7 .hero__title {
+            font-size: 50px;
+          }
+        }
+
+        @media (max-width: 575px) {
+          .hero.-type-7 .hero__title {
+            font-size: 36px;
+          }
+        }
+
+        .hero.-type-7 .hero__filter {
+          position: absolute;
+          bottom: 40px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 850px;
+          max-width: calc(100% - 40px);
+          z-index: 10;
+        }
+
+        @media (max-width: 767px) {
+          .hero.-type-7 .hero__filter {
+            max-width: unset;
+            width: auto;
+            left: 24px;
+            right: 24px;
+            transform: none;
+          }
+        }
+
+        .hero.-type-7 .hero__slider {
+          height: 100vh;
+          min-height: 700px;
+        }
+
+        .hero.-type-7 .hero__slider .swiper-wrapper {
+          height: 100%;
+        }
+
+        .hero.-type-7 .hero__slider .swiper-slide {
+          height: 100%;
+          position: relative;
+        }
+
+        .hero.-type-7 .hero__nav {
+          position: absolute;
+          top: 50%;
+          left: 60px;
+          right: 60px;
+          justify-content: space-between;
+          transform: translateY(-50%);
+          z-index: 10;
+        }
+
+        @media (max-width: 767px) {
+          .hero.-type-7 .hero__nav {
+            left: 20px;
+            right: 20px;
+          }
+        }
+
+        /* Image overlay for better text readability */
+        .image-half-overlay::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(0, 0, 0, 0.3);
+          z-index: 1;
+        }
+
+        /* Ensure container content is above overlay */
+        .hero.-type-7 .container {
+          position: relative;
+          z-index: 2;
+        }
+
+        /* Swiper Pagination Dots */
+        .hero.-type-7 .swiper-pagination {
+          position: absolute;
+          bottom: 30px;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 10;
+        }
+
+        .hero.-type-7 .swiper-pagination-bullet {
+          width: 12px;
+          height: 12px;
+          background: rgba(255, 255, 255, 0.5);
+          border-radius: 50%;
+          margin: 0 6px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+
+        .hero.-type-7 .swiper-pagination-bullet-active {
+          background: #fff;
+          transform: scale(1.2);
+        }
+
+        @media (max-width: 767px) {
+          .hero.-type-7 .swiper-pagination {
+            bottom: 20px;
+          }
+        }
+      `}</style>
+
+      <section className="hero -type-7">
+        {/* <div className="hero__shape"></div> */}
+
+        <div className="hero__slider js-section-slider">
+          <Swiper
+            className="w-100"
+            modules={[Navigation, Pagination, Autoplay]}
+            navigation={{
+              prevEl: ".js-sliderHero-prev",
+              nextEl: ".js-sliderHero-next",
+            }}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            loop={true}
+            pagination={{
+              clickable: true,
+              el: ".swiper-pagination",
+            }}
+            breakpoints={{
+              500: { slidesPerView: 1 },
+              768: { slidesPerView: 1 },
+              1024: { slidesPerView: 1 },
+              1200: { slidesPerView: 1 },
+            }}
+          >
+            {slides.map((elm, i) => (
+              <SwiperSlide key={elm.id}>
+                <div className="hero__bg image-half-overlay">
+                  <Image
+                    width={1920}
+                    height={960}
+                    src={elm.imageSrc}
+                    alt="background"
+                  />
+                </div>
+
+                <div className="container">
+                  <div className="row justify-center">
+                    <div className="col-lg-8 col-md-10">
+                      <div className="hero__content text-center">
+                        <h1
+                          data-aos="fade-up"
+                          data-aos-delay="300"
+                          className="hero__title text-white"
+                        >
+                          {elm.title.includes(",") ? (
+                            <>
+                              {elm.title.split(",")[0]},
+                              <br className="md:d-none" />
+                              {elm.title.split(",")[1]}
+                            </>
+                          ) : (
+                            elm.title
+                          )}
+                        </h1>
+                        <div
+                          data-aos="fade-up"
+                          data-aos-delay="100"
+                          className="hero__subtitle text-white mb-20 md:mb-10"
+                        >
+                          {elm.subtitle}
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
 
-      <div className="hero__nav d-flex mt-40">
-        <button className="button -outline-white rounded-full size-72 flex-center text-white js-sliderHero-prev">
-          <i className="icon-arrow-left text-20"></i>
-        </button>
+          {/* Pagination Dots */}
+          <div className="swiper-pagination"></div>
+        </div>
 
-        <button className="button -outline-white rounded-full size-72 flex-center text-white ml-10 js-sliderHero-next">
-          <i className="icon-arrow-right text-20"></i>
-        </button>
-      </div>
-    </section>
+        <div className="hero__nav d-flex mt-40">
+          <button className="button -outline-white rounded-full size-72 flex-center text-white js-sliderHero-prev">
+            <i className="icon-arrow-left text-20"></i>
+          </button>
+
+          <button className="button -outline-white rounded-full size-72 flex-center text-white ml-10 js-sliderHero-next">
+            <i className="icon-arrow-right text-20"></i>
+          </button>
+        </div>
+      </section>
+    </>
   );
 }
-
 
 /* Old code */
 // "use client";
