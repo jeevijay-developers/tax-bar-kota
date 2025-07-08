@@ -5,7 +5,6 @@ import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 const ProfileUpdation = () => {
-
   let id = localStorage.getItem("tba-token");
   const [imageUploading, setImageUploading] = useState(false);
 
@@ -125,46 +124,46 @@ const ProfileUpdation = () => {
   useEffect(() => {
     console.log("formData changed: ", formData);
   }, [formData]);
-  
+
   // Handle photo upload
   const handlePhotoUpload = async (e) => {
     const file = e.target.files[0];
     if (file) {
-      // preview the image locally
+      // Show loader
+      setImageUploading(true);
+
+      // Preview image locally
       const reader = new FileReader();
       reader.onload = () => {
         setProfilePhotoPreview(reader.result);
       };
       reader.readAsDataURL(file);
 
-      // upload to server to get final URL
       const formDataToUpload = new FormData();
       formDataToUpload.append("image", file);
 
       try {
         const res = await uploadProfileImage(id, formDataToUpload);
-        console.log("image", res?.imageUrl);
         if (res) {
-          // update formData with the new URL from server
           setFormData((prevData) => ({
             ...prevData,
-            profilePhoto: res.imageUrl,
+            image: res.imageUrl,
           }));
-          // console.log("form data after image update",formData)
           toast.success("Profile photo updated!");
         }
       } catch (error) {
         console.error("Image upload error: ", error);
         toast.error("Failed to upload image");
+      } finally {
+        // Hide loader
+        setImageUploading(false);
       }
     }
   };
-  
-  
 
   const handleSave = async () => {
     // Here you can add logic to save the updated profile
-    const user  = {...formData}
+    const user = { ...formData };
     // console.log("Profile :", user);
     try {
       const res = await updateUser(id, user);
@@ -178,7 +177,6 @@ const ProfileUpdation = () => {
       toast.error("Failed to update profile. Please try again.");
     }
   };
-
 
   const handleCancel = () => {
     setIsEditing(false);
@@ -240,6 +238,10 @@ const ProfileUpdation = () => {
                         ) : (
                           <div className="photo-placeholder">👤</div>
                         )}
+                        {imageUploading && (
+                          <div className="image-loader mb-2">Uploading...</div>
+                        )}
+
                         {isEditing && (
                           <>
                             <input
@@ -694,6 +696,18 @@ const ProfileUpdation = () => {
         </div>
       </div>
       <style jsx>{`
+      .image-loader {
+        font-weight: 600;
+        color: #ff6b49;
+        animation: pulse 1s infinite ease-in-out;
+      }
+
+      @keyframes pulse {
+        0% { opacity: 1; }
+        50% { opacity: 0.4; }
+        100% { opacity: 1; }
+      }
+
         .profile-container {
           background: #E0E0E0,
           min-height: 100vh;

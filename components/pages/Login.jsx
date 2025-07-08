@@ -52,6 +52,7 @@ export default function Login() {
               onSubmit={handleSubmit}
               className="contactForm border-1 rounded-12 px-60 py-60 md:px-25 md:py-30"
             >
+              <label className="lh-1 text-16 text-dark-1">Username</label>
               <div className="form-input ">
                 <input
                   type="text"
@@ -60,12 +61,12 @@ export default function Login() {
                   onChange={handleChange}
                   required
                 />
-                <label className="lh-1 text-16 text-light-1">
+                {/* <label className="lh-1 text-16 text-light-1">
                   Username
-                </label>
+                </label> */}
               </div>
-
-              <div className="form-input mt-30">
+              <label className="lh-1 text-16 text-dark-1 mt-30">Password</label>
+              <div className="form-input ">
                 <input
                   type="password"
                   name="password"
@@ -73,11 +74,13 @@ export default function Login() {
                   onChange={handleChange}
                   required
                 />
-                <label className="lh-1 text-16 text-light-1">Password</label>
+                {/* <label className="lh-1 text-16 text-light-1">Password</label> */}
               </div>
 
               {apiError && <div className="text-danger mt-20">{apiError}</div>}
-              {apiSuccess && <div className="text-success mt-20">{apiSuccess}</div>}
+              {apiSuccess && (
+                <div className="text-success mt-20">{apiSuccess}</div>
+              )}
 
               <button
                 type="submit"
@@ -86,12 +89,12 @@ export default function Login() {
                 Log In
                 <i className="icon-arrow-top-right ml-10"></i>
               </button>
-            <div className="text-center mt-20">
-              Don't have an account?{' '}
-              <Link href="/auth/signup" className="text-accent-1">
-                Sign Up!
-              </Link>
-            </div>
+              <div className="text-center mt-20">
+                Don't have an account?{" "}
+                <Link href="/auth/signup" className="text-accent-1">
+                  Sign Up!
+                </Link>
+              </div>
             </form>
           </div>
         </div>
